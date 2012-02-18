@@ -1,8 +1,15 @@
-Die Schriften:
+Zum VDR Nutzer wechseln (su vdr).
+
+Ins Pluginkonfigdir wechseln, dort per cd graphlcd/skins ins Skinverzeichnis wechseln und
+git clone http://dl.dropbox.com/s/f4gc4243t4pgv98/pearldpf-simple.git
+
+Später immer mal wieder per git pull (im pearldpf-simple Verzeichnis) aktualisieren.
+
+Die Schriften installieren:
   Ubuntu:
     apt-get install ttf-ubuntu-font-family
     ln -s /usr/share/fonts/truetype/ubuntu-font-family/Ubuntu-B.ttf <pluginconfdir>/graphlcd/fonts/Ubuntu-B.ttf
-  Debian und andere:
+  andere:
     Download http://font.ubuntu.com/
     Die Fonts unter /usr/local/share/fonts/truetype/ubuntu-font-family/ speichern
     ln -s /usr/local/share/fonts/truetype/ubuntu-font-family/Ubuntu-B.ttf <pluginconfdir>/graphlcd/fonts/Ubuntu-B.ttf

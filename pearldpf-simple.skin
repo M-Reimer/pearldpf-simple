@@ -1,0 +1,447 @@
+<?xml version="1.0"?>
+<skin version="1.1" name="pearldpf-simple">
+	<font id="FontDateTime" url="fnt:BigDotMatrix.fnt"/>
+	<font id="FontChannel" url="ft2:VDRSymbolsSans-Bold.ttf:22"/>
+
+	<font id="FontTimes" url="ft2:Verdana.ttf:14"/>
+	<font id="FontInfo" url="ft2:VDRSymbolsSans-Bold.ttf:22"/>
+
+	<font id="FontMenuTitle" url="ft2:Verdana.ttf:9"/>
+	<font id="FontMenuItem" url="ft2:VDRSymbolsSans.ttf:12"/>
+	<font id="FontMenuButton" url="ft2:Verdana.ttf:9"/>
+
+	<font id="FontMessage" url="ft2:VDRSymbolsSans-Bold.ttf:18"/>
+
+	<font id="Fontfemon" url="fnt:f12b.fnt"/>
+
+	<!-- Pictures -->
+	<variable id="StartLogo" value="'{SkinPath}/images/start.png'"/>
+
+	<variable id="SymbolDolby" value="'{SkinPath}/images/chanattrib/dolby.pbm'"/>
+	<variable id="SymbolMulti" value="'{SkinPath}/images/chanattrib/multilanguage.pbm'"/>
+	<variable id="SymbolScrambled" value="'{SkinPath}/images/chanattrib/scrambled.pbm'"/>
+	<variable id="SymbolTeletext" value="'{SkinPath}/images/chanattrib/teletext.pbm'"/>
+	<variable id="SymbolRadio" value="'{SkinPath}/images/chanattrib/radio.pbm'"/>
+	<variable id="SymbolRadiotext" value="'{SkinPath}/images/chanattrib/radiotext.pbm'"/>
+
+	<variable id="SymbolMute" value="'{SkinPath}/images/symbols/mute.pbm'"/>
+	<variable id="SymbolColon" value="'{SkinPath}/images/symbols/colon.glcd'"/>
+	<variable id="SymbolRecording" value="'{SkinPath}/images/symbols/rec.glcd'"/>
+	<variable id="Ber" value="'{SkinPath}/images/symbols/ber.pbm'"/>
+	<variable id="BerAni" value="'{SkinPath}/images/symbols/ber_a.glcd'"/>
+	<variable id="Unc" value="'{SkinPath}/images/symbols/unc.pbm'"/>
+	<variable id="UncAni" value="'{SkinPath}/images/symbols/unc_a.glcd'"/>
+
+
+	<variable id="ReplayLogo" value="'{SkinPath}/images/replay/{ReplayMode}.pbm'"/>
+
+	<variable id="MessageBitmap" value="'{SkinPath}/images/symbols/message.pbm'"/>
+
+
+	<!-- Default Colors -->
+
+
+	<condblock condition="QueryFeature('isgreyscale')">
+		<variable id="ColBackground"         value="{BackgroundColor}"/>
+
+		<variable id="ColStartLogo"          value="'black'"/>
+		<variable id="ColClock"              value="'black'"/>
+		<variable id="ColRec"                value="'red'"/>
+		<variable id="ColFrames"             value="'black'"/>
+		<variable id="ColLogo"               value="'white'"/>
+		<variable id="ColLogoBackground"     value="'black'"/>
+		<variable id="ColChannel"            value="'white'"/>
+		<variable id="ColVolume"             value="'white'"/>
+		<variable id="ColPresentTime"        value="'black'"/>
+		<variable id="ColPresentProgress"    value="'black'"/>
+		<variable id="ColPresentSymbols"     value="'yellow'"/>
+
+		<variable id="ColFemon"              value="'yellow'"/>
+		<variable id="ColFemonBG"            value="'white'"/>
+
+		<variable id="ColBar"                value="'white'"/>
+		<variable id="ColBarCaption"         value="'black'"/>
+		<variable id="ColListItem"           value="'white'"/>
+		<variable id="ColListItemCaption"    value="'black'"/>
+		<variable id="ColSelListItem"        value="'black'"/>
+		<variable id="ColSelListItemCaption" value="'white'"/>
+		<variable id="ColButtonCaption"      value="'white'"/>
+		<variable id="ColButtonRed"          value="'red'"/>
+		<variable id="ColButtonGreen"        value="'green'"/>
+		<variable id="ColButtonYellow"       value="'yellow'"/>
+		<variable id="ColButtonBlue"         value="'blue'"/>
+	</condblock>
+
+	<condblock condition="QueryFeature('iscolour')">
+		<variable id="ColBackground"         default="{BackgroundColor}" value="'black'"/>
+
+		<variable id="ColStartLogo"          default="{ForegroundColor}" value="'white'"/>
+		<variable id="ColClock"              default="{ForegroundColor}" value="'white'"/>
+		<variable id="ColRec"                default="{ForegroundColor}" value="'red'"/>
+		<variable id="ColFrames"             default="{ForegroundColor}" value="'0x300060'"/>
+		<variable id="ColLogo"               default="{BackgroundColor}" value="'white'"/>
+		<variable id="ColLogoBackground"     default="{ForegroundColor}" value="'blue'"/>
+		<variable id="ColChannel"            default="{BackgroundColor}" value="'white'"/>
+		<variable id="ColVolume"             default="{ForegroundColor}" value="'blue'"/>
+		<variable id="ColPresentTime"        default="{ForegroundColor}" value="'0xFF777700'"/>
+		<variable id="ColPresentProgress"    default="{ForegroundColor}" value="'white'"/>
+		<variable id="ColPresentSymbols"     default="{ForegroundColor}" value="'yellow'"/>
+
+		<variable id="ColPresentText"        default="{ForegroundColor}" value="'0x77C077'"/>
+		<variable id="ColPresentShortText"   default="{ForegroundColor}" value="'0x77C077'"/>
+
+		<variable id="ColFemon"              default="{BackgroundColor}" value="'yellow'"/>
+		<variable id="ColFemonBG"            default="{ForegroundColor}" value="'blue'"/>
+
+		<variable id="ColBar"                default="{ForegroundColor}" value="'green'"/>
+		<variable id="ColBarCaption"         default="{BackgroundColor}" value="'white'"/>
+		<variable id="ColListItem"           default="{BackgroundColor}" value="'white'"/>
+		<variable id="ColListItemCaption"    default="{ForegroundColor}" value="'white'"/>
+		<variable id="ColSelListItem"        default="{ForegroundColor}" value="'green'"/>
+		<variable id="ColSelListItemCaption" default="{BackgroundColor}" value="'black'"/>
+		<variable id="ColButtonCaption"      default="{BackgroundColor}" value="'white'"/>
+		<variable id="ColButtonRed"          default="{ForegroundColor}" value="'red'"/>
+		<variable id="ColButtonGreen"        default="{ForegroundColor}" value="'green'"/>
+		<variable id="ColButtonYellow"       default="{ForegroundColor}" value="'yellow'"/>
+		<variable id="ColButtonBlue"         default="{ForegroundColor}" value="'blue'"/>
+	</condblock>
+
+	<!-- Positions -->
+	<variable id="MaxX" value="239"/>
+	<variable id="MaxY" value="127"/>
+	<variable id="MinX" value="0"/>
+	<variable id="MinY" value="0"/>
+	<variable id="ClockLineH" value="21"/>
+	<variable id="ClockDotX" value="34"/>
+	<variable id="ClockDotY" value="#MinY"/>
+	<variable id="ClockDotW" value="3"/>
+	<variable id="TextSpace" value="2"/>
+	<variable id="FrameSpace" value="1"/>
+	<variable id="NotifyStartX" value="172"/>
+	<variable id="NotifyEndX" value="#MaxX"/>
+	<variable id="NotifyStartY" value="#MinY"/>
+	<variable id="NotifyEndY" value="51"/>
+	<variable id="RecSymX" value="113"/>
+	<variable id="RecSymY" value="#MinY"/>
+	<variable id="RecNotifySymX" value="78"/>
+	<variable id="RecNotifySymY" value="#MinY"/>
+
+	<variable id="ChannelNotifyBarY" value="25"/>
+	<variable id="ChannelNotifyBarH" value="27"/>
+
+	<variable id="PresentInfoY" value="49"/>
+	<variable id="ProgressY" value="119"/>
+
+	<variable id="VolumeStartX" value="1"/>
+	<variable id="VolumeStartY" value="add(#ChannelNotifyBarY,1)"/>
+	<variable id="VolumeW" value="13"/>
+
+	<variable id="SymbolW" value="15"/>
+	<variable id="SymbolH" value="11"/>
+	<variable id="SymbolPitch" value="3"/>
+
+	<variable id="ButtonY" value="116"/>
+
+	<variable id="BarH" value="13"/>
+	<variable id="MenuY" value="15"/>
+
+
+	<!-- Beim start ist der Channel "0" -->
+	<variable id="ChanValid" value="0" condition="le({ChannelNumber},0)" default="1"/>
+
+	<!-- Femon Error wird angezeigt wenn:
+				- Femon installiert ist
+				und
+				- ber > #MaxBer oder unc > #MaxUnc oder snr < #MinSnr sind
+	-->
+	<variable id="DispFemonError" value="1" condition="and({ServiceIsAvailable:femon},or(gt({ServiceItem:femon,ber},#MaxBer),or(gt({ServiceItem:femon,unc},#MaxUnc),lt({ServiceItem:femon,percent_snr},#MinSnr))))" default="0"/>
+
+	<!-- Prioritätsnachricht wird angezeigt wenn:
+				- #DispFemonError
+	-->
+	<variable id="PrioMessage" value="1" condition="#DispFemonError" default="0"/>
+
+	<!-- Logo wird angezeigt wenn:
+				- Kein Femon installiert:
+					- Logo im Setup angeeschaltet
+					UND
+					- Logo für diesen Kanel vorhanden
+				ODER
+				- Femon installiert ist:
+					- Logo im Setup angeeschaltet
+					UND
+					- Logo für diesen Kanel vorhanden
+					UND
+					- im Timeslot (Sekunden >= #FemonTime)
+					UND
+					- keine Prioritätsnachricht vorhanden ist
+	-->
+	<variable id="DispLogo" value="1" condition="or(and(not({ServiceIsAvailable:femon}),and({SettingShowChannelLogo},file('#ChannelLogo'))),and({ServiceIsAvailable:femon},and(and({SettingShowChannelLogo},file('#ChannelLogo')),and(ge({DateTime:%S},#FemonTime),not(PrioMessage)))))" default="0"/>
+
+	<!-- Femon wird angezeigt wenn:
+				Femon installiert ist:
+					- Logo im Setup angeeschaltet
+					und
+					- Logo für diesen Kanel vorhanden
+					und
+					- im Timeslot (Sekunden < #FemonTime)
+					und
+					- keine Prioritätsnachricht vorhanden ist
+	-->
+	<variable id="DispFemon" value="1" condition="and({ServiceIsAvailable:femon},and(and({SettingShowChannelLogo},file('#ChannelLogo')),and(lt({DateTime:%S},#FemonTime),not(PrioMessage))))" default="0"/>
+
+	<!-- Notify Area ist an wenn:
+				- #DisplLogo
+				oder
+				- #DisplFemon
+				oder
+				- #PrioMessage
+	-->
+	<variable id="DispNotify" value="1" condition="or(#PrioMessage,or(#DispLogo,#DispFemon))" default="0"/>
+
+	<variable id="RDSInfo" value="{ServiceItem:radio,rds_info}" condition="{ServiceIsAvailable:radio}" default="0"/>
+
+
+	<!-- normale Channelanzeige -->
+	<display id="normal">
+
+		<!-- <rectangle x="0" width="{ScreenWidth}" y="0" height="{ScreenHeight}" color="#ColBackground" filled="yes"/> -->
+
+		<!-- Kein Channel, beim Start -->
+		<image x="#MinX" y="#MinY" path="#StartLogo" condition="not(#ChanValid)"/>
+
+
+
+		<!-- Normalbetrieb -->
+		<block condition="#ChanValid">
+
+
+			<!-- Date/Time "XX :" -->
+			<text x1="#MinX" x2="sub(#ClockDotX,#TextSpace,1)" y1="#MinY"
+			 height="#ClockLineH" scrollmode="never" color="#ColClock" align="right"
+			 font="FontDateTime">
+				{DateTime:%H}
+			</text>
+			<image x="#ClockDotX" y="#MinY" path="#SymbolColon" color="#ColClock"/>
+
+			<!-- Notify Area present-->
+			<block condition="#DispNotify">
+
+				<!-- Date/Time " XX    YY ZZ" -->
+				<text x1="add(#ClockDotX,#ClockDotW,#TextSpace)"
+				 x2="sub(#NotifyStartX,#TextSpace,1)" y1="#MinY" height="#ClockLineH"
+				  color="#ColClock" align="left" font="FontDateTime">
+					{DateTime:%M}
+				</text>
+				<image x="#RecNotifySymX" y="#MinY" color="#ColRec"
+				 path="#SymbolRecording" condition="{IsRecording}"/>
+				<text x1="add(#ClockDotX,#ClockDotW,#TextSpace)"
+				 x2="sub(#NotifyStartX,#TextSpace,1)" y1="#MinY" height="#ClockLineH"
+				 color="#ColClock" align="right" font="FontDateTime">
+					{DateTime:%a %d}
+				</text>
+
+				<!-- Notify Area -->
+				<!-- Border -->
+				<rectangle x1="#NotifyStartX" x2="#NotifyEndX" y1="#NotifyStartY"
+				 y2="#NotifyEndY" color="#ColFrames" filled="no"/>
+
+				<!-- keine Prioritätsnachricht -->
+				<block condition="not(#PrioMessage)">
+					<!-- Logo -->
+					<block condition="#DispLogo">
+
+						<!-- Logo -->
+						<image x="add(#NotifyStartX,#FrameSpace,1)"
+						 y="add(#NotifyStartY,#FrameSpace,1)" bgcolor="#ColLogoBackground"
+						 color="#ColLogo" path="#ChannelLogo"/>
+					</block>
+
+					<!-- femon -->
+					<block condition="#DispFemon">
+						<!-- Info Pane -->
+						<rectangle x1="174" x2="237" y1="2" y2="49" color="#ColLogoBackground" filled="yes"/>
+						<progress x1="176" x2="235" y1="4" height="10" bgcolor="#ColFemonBG"
+						 color="#ColFemon" direction="0" current="{ServiceItem:femon,percent_signal}" total="100"/>
+						<text x1="176" x2="235" y1="15" height="FontLineHeight('Fontfemon')" bgcolor="#ColLogoBackground" color="#ColFemon" align="left" font="Fontfemon">
+							STR:
+						</text>
+						<text x1="176" x2="235" y1="15" height="FontLineHeight('Fontfemon')" bgcolor="#ColLogoBackground" color="#ColFemon" align="right" font="Fontfemon">
+							{ServiceItem:femon,percent_signal}%
+						</text>
+						<progress x1="176" x2="235" y1="27" height="10" bgcolor="#ColFemonBG"
+						 color="#ColFemon" direction="0" current="{ServiceItem:femon,percent_snr}" total="100"/>
+						<text x1="176" x2="235" y1="38" height="FontLineHeight('Fontfemon')" bgcolor="#ColLogoBackground" color="#ColFemon" align="left" font="Fontfemon">
+							SNR:
+						</text>
+						<text x1="176" x2="235" y1="38" height="FontLineHeight('Fontfemon')" bgcolor="#ColLogoBackground" color="#ColFemon" align="right" font="Fontfemon">
+							{ServiceItem:femon,percent_snr}%
+						</text>
+					</block>
+				</block>
+
+				<!-- Prioritätsnachricht -->
+				<block condition="#PrioMessage">
+					<!-- femon Error-->
+					<block condition="#DispFemonError">
+						<!-- Info Pane -->
+						<rectangle x1="174" x2="237" y1="2" y2="49" color="#ColLogoBackground" filled="yes"/>
+						<progress x1="176" x2="235" y1="4" height="10" bgcolor="#ColFemonBG"
+						 color="#ColFemon" direction="0" current="{ServiceItem:femon,percent_signal}" total="100"/>
+						<progress x1="176" x2="235" y1="19" height="10" bgcolor="#ColFemonBG"
+						 color="#ColFemon" direction="0" current="{ServiceItem:femon,percent_snr}" total="100"/>
+						<image x="176" y="34" condition="equal({ServiceItem:femon,ber},0)" path="#Ber"/>
+						<image x="176" y="34" condition="ne({ServiceItem:femon,ber},0)" path="#BerAni"/>
+						<image x="212" y="34" color="#ColLogo" condition="equal({ServiceItem:femon,unc},0)" path="#Unc"/>
+						<image x="212" y="34" color="#ColLogo" condition="ne({ServiceItem:femon,unc},0)" path="#UncAni"/>
+					</block>
+				</block>
+
+
+				<!-- Channelname -->
+				<rectangle x1="#MinX" x2="sub(#NotifyStartX,1)" y1="#ChannelNotifyBarY"
+				 height="#ChannelNotifyBarH" color="#ColFrames" filled="yes"/>
+				<text x1="add(#VolumeStartX,#VolumeW,#FrameSpace,#FrameSpace,#TextSpace)"
+				 x2="sub(#NotifyStartX,#TextSpace,1)" y1="#ChannelNotifyBarY"
+				 height="#ChannelNotifyBarH"
+				 altcondition="le(FontTextWidth('FontChannel',{ChannelName}),sub(sub(#NotifyStartX,#TextSpace,1),add(#VolumeStartX,#VolumeW,#FrameSpace,#FrameSpace,#TextSpace),-1))"
+				 alttext="{ChannelName}" color="#ColChannel"
+				 align="center" font="FontChannel">
+					{ChannelShortName}
+				</text>
+
+			</block>
+
+			<!-- Notify not Area present-->
+			<block condition="not(#DispNotify)">
+
+				<text x1="add(#clockdotx,5)" x2="#maxx" y1="0"
+				 height="FontLineHeight('FontDateTime')" bgcolor="white" color="black"
+				 align="left" font="FontDateTime">
+					{DateTime:%M}
+				</text>
+				<image x="#recx" y="0" path="#SymbolRecording"
+				 condition="{IsRecording}"/>
+				<text x1="add(#clockdotx,5)" x2="#maxx" y1="0"
+				 height="FontLineHeight('FontDateTime')" bgcolor="white" color="black"
+				 align="right" font="FontDateTime">
+					{DateTime:%a %d}
+				</text>
+
+			</block>
+
+			<!-- VolumeBar -->
+			<rectangle x1="#VolumeStartX" x2="add(#VolumeW,#FrameSpace,#FrameSpace)"
+			 y1="#VolumeStartY" height="sub(#ChannelNotifyBarH,2)"
+			 color="#ColBackground" filled="yes"/>
+			<progress x1="add(#VolumeStartX,#FrameSpace)" width="#VolumeW"
+			 y1="add(#VolumeStartY,#FrameSpace)"
+			 height="sub(FontLineHeight('FontChannel'),3)" bgcolor="#ColBackground"
+			 bgcolor="#ColBackground" color="#ColVolume" direction="3"
+			 current="{VolumeCurrent}" total="{VolumeTotal}" condition="not({VolumeIsMute})"/>
+			<image x="2" y="27" path="#SymbolMute" color="#ColVolume" condition="{VolumeIsMute}"/>
+
+			<!-- Pressent Valid? -->
+			<block condition="and({PresentValid},{SettingShowTimebar})"> 
+
+				<!-- Runtime -->
+				<text x1="#MinX" x2="#MaxX" y1="#PresentInfoY"
+				 height="FontLineHeight('FontTimes')" color="#ColPresentTime"
+				 align="left" font="FontTimes">
+					{PresentStartDateTime:%H\:%M\:%S} - {FollowingStartDateTime:%H\:%M\:%S}
+				</text>
+
+				<!-- Progress -->
+				<line x1="#MinX" x2="#MaxX" y1="#ProgressY" y2="#ProgressY" color="#ColFrames"/>
+				<progress x1="#MinX" x2="#MaxX" y1="add(#ProgressY,#FrameSpace,1)"
+				 y2="#MaxY" color="#ColPresentProgress" direction="0"
+				 current="{PresentProgress}" total="{PresentDuration}"/>
+
+				<!-- Pressent Symbols -->
+				<block condition="{SettingShowSymbols}">
+					<image x="sub(#MaxX,mul(#SymbolW,5),mul(#SymbolPitch,4),-1)"
+					 y="add(#PresentInfoY,4)" color="#ColPresentSymbols"
+					 path="#SymbolRadio" condition="and({ChannelIsRadio},le(#RDSInfo,0))"/>
+					<image x="sub(#MaxX,mul(#SymbolW,5),mul(#SymbolPitch,4),-1)"
+					 y="add(#PresentInfoY,4)" color="#ColPresentSymbols"
+					 path="#SymbolRadiotext" condition="and({ChannelIsRadio},ne(#RDSInfo,0))"/>
+					<image x="sub(#MaxX,mul(#SymbolW,4),mul(#SymbolPitch,3),-1)"
+					 y="add(#PresentInfoY,4)" color="#ColPresentSymbols"
+					 path="#SymbolScrambled" condition="{ChannelIsEncrypted}"/>
+					<image x="sub(#MaxX,mul(#SymbolW,3),mul(#SymbolPitch,2),-1)"
+					 y="add(#PresentInfoY,4)" color="#ColPresentSymbols"
+					 path="#SymbolTeletext" condition="{ChannelHasTeletext}"/>
+					<image x="sub(#MaxX,mul(#SymbolW,2),mul(#SymbolPitch,1),-1)"
+					 y="add(#PresentInfoY,4)" color="#ColPresentSymbols"
+					 path="#SymbolDolby" condition="{ChannelHasDolby}"/>
+					<image x="sub(#MaxX,mul(#SymbolW,1),mul(#SymbolPitch,0),-1)"
+					 y="add(#PresentInfoY,4)" color="#ColPresentSymbols"
+					 path="#SymbolMulti" condition="{ChannelHasMultilang}"/>
+				</block>
+
+			</block>
+
+
+			<!-- Radio -->
+			<block condition="ne(#RDSInfo,0)">
+
+				<!-- Titel -->
+					<text x1="0" x2="239" y1="65" height="FontLineHeight('FontInfo')"
+					 color="black" align="left" font="FontInfo" condition="not({PresentShortText})">
+						{PresentTitle}
+					</text>
+				<!-- Titel, Subtitle -->
+					<text x1="0" x2="239" y1="65" height="FontLineHeight('FontInfo')"
+					 color="black" align="left" font="FontInfo" condition="{PresentShortText}">
+						{PresentTitle} - {PresentShortText}
+					</text>
+
+				<!-- RTitle, RArtist -->
+					<text x1="0" x2="239" y1="91" height="FontLineHeight('FontInfo')"
+					 color="black" align="left" font="FontInfo" condition="not(ne(#RDSInfo,2))">
+						{ServiceItem:radio,title} - {ServiceItem:radio,artist}
+					</text>
+
+				<!-- Radiotext -->
+					<text x1="0" x2="239" y1="91" height="FontLineHeight('FontInfo')"
+					 color="black" align="left" font="FontInfo" condition="not(ne(#RDSInfo,1))">
+						{ServiceItem:radio,text}
+					</text>
+
+			</block>
+
+			<!-- TV -->
+				<block condition="not(ne(#RDSInfo,0))">
+				<!-- Title -->
+				<text x1="0" x2="239" y1="65" y2="117" multiline="yes" valign="middle"
+				 color="#ColPresentText" align="left" font="FontInfo" condition="not({PresentShortText})">
+					{PresentTitle}
+				</text>
+				<text x1="0" x2="239" y1="65" height="FontLineHeight('FontInfo')"
+				 color="#ColPresentText" align="left" font="FontInfo" condition="{PresentShortText}">
+					{PresentTitle}
+				</text>
+				<!-- Subtitle -->
+				<text x1="0" x2="239" y1="91" height="FontLineHeight('FontInfo')"
+				 color="#ColPresentShortText" align="left" font="FontInfo">
+					{PresentShortText}
+				</text>
+			</block>
+
+		</block>
+
+	</display>
+
+
+	<display id="replay">
+	</display>
+
+
+	<display id="message">
+	</display>
+
+
+	<display id="menu">
+	</display>
+
+</skin>
