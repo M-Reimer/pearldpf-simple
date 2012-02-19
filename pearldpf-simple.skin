@@ -17,13 +17,12 @@
 
 		<variable id="Progress" evaluate="always" value="div(mul({PresentProgress},320),{PresentDuration})"/>
 
-		<rectangle x="0" width="319" y="0" height="240" color="white" filled="yes"/>
 		<image x="0" y="0" path="#LogoBackground"/>
 		<image x="30" y="10" path="#ChannelLogo" condition="file('#ChannelLogo')"/>
 		<image x="30" y="10" path="#NoChannelLogo" condition="not(file('#ChannelLogo'))"/>
 		<image x1="0" y="165" path="#ProgessBarBackground"/>
-		<image x1="0" x2="#Progress" y="165" height="30" scale="fill" path="#ProgessBarForeground" condition="{PresentTitle}"/>
-		<rectangle x="0" width="319" y="195" height="45" color="#BarBackground" filled="yes"/>
+		<image x="0" width="#Progress" y="165" height="30" scale="fill" path="#ProgessBarForeground" condition="{PresentTitle}"/>
+		<rectangle x="0" width="320" y="195" height="45" color="#BarBackground" filled="yes"/>
 		<text x1="5" x2="314" y="195" height="45" color="#BarForeground" valign="middle" align="center" font="FontBar" scrollmode="always" condition="{PresentTitle}">
 			{PresentTitle}
 		</text>
