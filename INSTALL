@@ -13,3 +13,7 @@ Die Schriften installieren:
     Download http://font.ubuntu.com/
     Die Fonts unter /usr/local/share/fonts/truetype/ubuntu-font-family/ speichern
     ln -s /usr/local/share/fonts/truetype/ubuntu-font-family/Ubuntu-B.ttf <pluginconfdir>/graphlcd/fonts/Ubuntu-B.ttf
+
+Die Logos installieren:
+  Die Logos (260x146) vom yaVDR best friend runterladen und im skinverzeichnis einen Link darauf erstellen
+  ln -s /usr/share/<Pfad zu den Logos> <pluginconfdir>/graphlcd/skins/pearldpf-simple/channellogos
