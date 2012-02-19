@@ -3,7 +3,7 @@
 
 
 <variable id="ChannelLogo" value="'{SkinPath}/channellogos/{ChannelAlias}.png'"/>
-<font id="FontBar" url="ft2:VDRSymbolsSans-Bold.ttf:36"/>
+<font id="FontBar" url="ft2:Ubuntu-B.ttf:36"/>
 
 <variable id="NoChannelLogo" value="'{SkinPath}/images/logo-noLogo.png'"/>
 <variable id="LogoBackground" value="'{SkinPath}/images/logoback.gif'"/>
