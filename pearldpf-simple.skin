@@ -16,16 +16,37 @@
 	<display id="normal">
 
 		<variable id="Progress" evaluate="always" value="div(mul({PresentProgress},320),{PresentDuration})"/>
-
+		<variable id="RDSInfo" evaluate="always" value="{ServiceItem:radio,rds_info}" condition="{ServiceIsAvailable:radio}" default="0"/>
+	
 		<image x="0" y="0" path="#LogoBackground"/>
 		<image x="30" y="10" path="#ChannelLogo" condition="file('#ChannelLogo')"/>
 		<image x="30" y="10" path="#NoChannelLogo" condition="not(file('#ChannelLogo'))"/>
 		<image x1="0" y="165" path="#ProgessBarBackground"/>
 		<image x="0" width="#Progress" y="165" height="30" scale="fill" path="#ProgessBarForeground" condition="{PresentTitle}"/>
 		<rectangle x="0" width="320" y="195" height="45" color="#BarBackground" filled="yes"/>
-		<text x1="5" x2="314" y="195" height="45" color="#BarForeground" valign="middle" align="center" font="FontBar" scrollmode="always" condition="{PresentTitle}">
-			{PresentTitle}
-		</text>
+
+		<block condition="ne(#RDSInfo,0)">
+			<!-- Titel -->
+			<text x1="5" x2="314" y="195" height="45" color="#BarForeground" valign="middle" align="center" font="FontBar" scrollmode="always" condition="and(ne(FontTextWidth('FontBar',{PresentTitle}),0),equal(#RDSInfo,0))">
+				{PresentTitle}
+			</text>
+			<text x1="5" x2="314" y="195" height="45" color="#BarForeground" valign="middle" align="center" font="FontBar" scrollmode="always" condition="and(equal(FontTextWidth('FontBar',{PresentTitle}),0),equal(#RDSInfo,0))">
+				keine Info!
+			</text>
+			<!-- RTitle, RArtist -->
+			<text x1="5" x2="314" y="195" height="45" color="#BarForeground" valign="middle" align="center" font="FontBar" scrollmode="always" condition="not(ne(#RDSInfo,2))">
+				{ServiceItem:radio,title} - {ServiceItem:radio,artist}
+			</text>
+			<!-- Radiotext -->
+			<text x1="5" x2="314" y="195" height="45" color="#BarForeground" valign="middle" align="center" font="FontBar" scrollmode="always" condition="not(ne(#RDSInfo,1))">
+				{ServiceItem:radio,text}
+			</text>
+		</block>
+		<block condition="equal(#RDSInfo,0)">
+			<text x1="5" x2="314" y="195" height="45" color="#BarForeground" valign="middle" align="center" font="FontBar" scrollmode="always" altcondition="equal(FontTextWidth('FontBar',{PresentTitle}),0)" alttext="keine Info!">
+				{PresentTitle}
+			</text>
+		</block>
 
 	</display>
 
