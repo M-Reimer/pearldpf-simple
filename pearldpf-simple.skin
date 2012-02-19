@@ -3,12 +3,13 @@
 
 
 <variable id="ChannelLogo" value="'{SkinPath}/channellogos/{ChannelAlias}.png'"/>
-<font id="FontBar" url="ft2:VDRSymbolsSans-Bold.ttf:30"/>
+<font id="FontBar" url="ft2:VDRSymbolsSans-Bold.ttf:36"/>
 
+<variable id="NoChannelLogo" value="'{SkinPath}/images/logo-noLogo.png'"/>
 <variable id="LogoBackground" value="'{SkinPath}/images/logoback.gif'"/>
 <variable id="ProgessBarBackground" value="'{SkinPath}/images/barback.gif'"/>
 <variable id="ProgessBarForeground" value="'{SkinPath}/images/bar.gif'"/>
-<variable id="BarBackground" value="'0x00032A'"/>
+<variable id="BarBackground" value="'0x00032B'"/>
 <variable id="BarForeground" value="'white'"/>
 
 
@@ -18,8 +19,9 @@
 
 		<rectangle x="0" width="319" y="0" height="240" color="white" filled="yes"/>
 		<image x="0" y="0" path="#LogoBackground"/>
-		<image x="30" y="10" path="#ChannelLogo"/>
-		<image x1="0" x2="319" y="165" height="30" scale="fill" path="#ProgessBarBackground"/>
+		<image x="30" y="10" path="#ChannelLogo" condition="file('#ChannelLogo')"/>
+		<image x="30" y="10" path="#NoChannelLogo" condition="not(file('#ChannelLogo'))"/>
+		<image x1="0" y="165" path="#ProgessBarBackground"/>
 		<image x1="0" x2="#Progress" y="165" height="30" scale="fill" path="#ProgessBarForeground"/>
 		<rectangle x="0" width="319" y="195" height="45" color="#BarBackground" filled="yes"/>
 		<text x1="5" x2="314" y="195" height="45" color="#BarForeground" valign="middle" align="center" font="FontBar" scrollmode="always" condition="{PresentTitle}">
