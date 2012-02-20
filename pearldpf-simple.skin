@@ -12,7 +12,8 @@
 <variable id="ProgessBarForeground" value="'{SkinPath}/images/bar.gif'"/>
 <variable id="MuteLeft" value="'{SkinPath}/images/mute_l.png'"/>
 <variable id="MuteRight" value="'{SkinPath}/images/mute_r.png'"/>
-<variable id="VolumeBar" value="'{SkinPath}/images/audio_volume_high.png'"/>
+<variable id="VolumeBar" value="'{SkinPath}/images/audio_volume.png'"/>
+<variable id="VolumeBarMute" value="'{SkinPath}/images/audio_volume_muted.png'"/>
 <variable id="BarBackground" value="'0x00032B'"/>
 <variable id="BarForeground" value="'white'"/>
 
@@ -63,7 +64,8 @@
 		<variable id="Start1" evaluate="always" value="add(30,div(sub(260,#Volume1),2))"/>
 		<variable id="Start2" evaluate="always" value="add(10,div(sub(146,#Volume2),2))"/>
 		<image x="30" y="10" path="#LogoEmpty"/>
-		<image x="#Start1" y="#Start2" width="#Volume1" height="#Volume2" scale="fill" path="#VolumeBar" condition="not({VolumeIsMute})"/>
+		<image x="#Start1" y="#Start2" width="#Volume1" height="#Volume2" scale="auto" path="#VolumeBar" condition="not({VolumeIsMute})"/>
+		<image x="30" y="10" width="260" height="146" scale="auto" path="#VolumeBarMute" condition="{VolumeIsMute}"/>
 	</display>
 
 
