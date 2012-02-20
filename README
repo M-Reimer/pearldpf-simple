@@ -6,33 +6,40 @@ http://www.vdr-portal.de/board18-vdr-hardware/board11-lcds/p1053917-pearl-displa
 Nachrichteninterface:
 Um den Nutzern die Möglichkeit zu geben auf dem Display eigene Nachrichten anzuzeigen
 gilt folgende Vereinbarung zum setzen der Variablen per SVDRP die von allen Skins unterstützt
-werden sollte.
+werden sollten.
 
-ALERT         : Auf einen beliebigen wert gesetzt aktiviert diese Nachricht. Diese zu
-                Löschen löscht die Nachricht. Sollte als letztes gesetzt werden.
-ALERT.TYPE    : Der Type der Nachricht. Moglicher WErte sind "INFO", "WARNING" und "ERROR"
+ALERT         : Auf einen beliebigen Wert gesetzt aktiviert diese Nachricht. Diese Variable
+                löschen löscht die Nachricht. Sollte als letztes gesetzt werden.
+ALERT.TYPE    : Der Type der Nachricht. Moglicher Werte sind "INFO", "WARNING" und "ERROR"
 ALERT.ICON    : Pfad zu einem Symbol. Der vDR user muss Leserechte für diese Datei haben.
 ALERT.TITLE   : Der Titel der Nachricht.
 ALERT.ORGIN   : Die Quelle (der Absender) der Nachricht.
-ALERT.MESSAGE : Die nachricht selber.
+ALERT.MESSAGE : Die Nachricht selber.
+
 
 Beispiel:
 
 Info anzeigen:
 
  --
- svdrpsend plug graphlcd set ALERT.TYPE INFO
- svdrpsend plug graphlcd set ALERT.ICON /usr/share/incons/myinfo.png
- svdrpsend plug graphlcd set ALERT.TITLE SMART_Warnung
- svdrpsend plug graphlcd set ALERT.ORGIN SMART_Daemon
- svdrpsend plug graphlcd set ALERT.MESSAGE Attribute_6_changed_Value_to_45
- svdrpsend plug graphlcd set ALERT 1
+ svdrpsend plug graphlcd SET ALERT.TYPE INFO
+ svdrpsend plug graphlcd SET ALERT.ICON /usr/share/myicons/myinfo.png
+ svdrpsend plug graphlcd SET ALERT.TITLE SMART Warnung
+ svdrpsend plug graphlcd SET ALERT.ORGIN SMART_Daemon
+ svdrpsend plug graphlcd SET ALERT.MESSAGE Attribute 6 changed Value to 45
+ svdrpsend plug graphlcd SET ALERT 1
  --
+es ist ferner möglich eine Verfallszeit für die Nachricht anzugeben
+ --
+ svdrpsend plug graphlcd SET ALERT,expire=30 1
+ --
+das zeigt die Nachricht für 30 Sekunden.
 
-Meldung löschen
 
-Vorher ALERT.ORGIN abfragen und prüfen ob die aktuell angezeigte Nachricht noch die eigene ist.
+Nachricht löschen
+
+Vorher "ALERT.ORGIN" abfragen und prüfen ob die aktuell angezeigte Nachricht noch die eigene ist.
 
  --
- svdrpsend plug graphlcd unset ALERT
+ svdrpsend plug graphlcd UNSET ALERT
  --
