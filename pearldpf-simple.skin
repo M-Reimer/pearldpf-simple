@@ -60,8 +60,10 @@
 	<display id="volume">
 		<variable id="Volume1" evaluate="always" value="div(mul({VolumeCurrent},260),{VolumeTotal})"/>
 		<variable id="Volume2" evaluate="always" value="div(mul({VolumeCurrent},146),{VolumeTotal})"/>
+		<variable id="Start1" evaluate="always" value="add(30,div(sub(260,#Volume1),2))"/>
+		<variable id="Start2" evaluate="always" value="add(10,div(sub(146,#Volume2),2))"/>
 		<image x="30" y="10" path="#LogoEmpty"/>
-		<image x="30" y="10" width="#Volume1" height="#Volume2" scale="fill" path="#NoChannelLogo"/>
+		<image x="#Start1" y="#Start2" width="#Volume1" height="#Volume2" scale="fill" path="#NoChannelLogo" condition="not({VolumeIsMute})"/>
 	</display>
 
 
