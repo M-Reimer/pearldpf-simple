@@ -1,2 +1,38 @@
 Basierend auf den Ideen dieses Threads:
 http://www.vdr-portal.de/board18-vdr-hardware/board11-lcds/p1053917-pearl-display-yavdr-todo-install/#post1053917
+
+
+
+Nachrichteninterface:
+Um den Nutzern die Möglichkeit zu geben auf dem Display eigene Nachrichten anzuzeigen
+gilt folgende Vereinbarung zum setzen der Variablen per SVDRP die von allen Skins unterstützt
+werden sollte.
+
+ALERT         : Auf einen beliebigen wert gesetzt aktiviert diese Nachricht. Diese zu
+                Löschen löscht die Nachricht. Sollte als letztes gesetzt werden.
+ALERT.TYPE    : Der Type der Nachricht. Moglicher WErte sind "INFO", "WARNING" und "ERROR"
+ALERT.ICON    : Pfad zu einem Symbol. Der vDR user muss Leserechte für diese Datei haben.
+ALERT.TITLE   : Der Titel der Nachricht.
+ALERT.ORGIN   : Die Quelle (der Absender) der Nachricht.
+ALERT.MESSAGE : Die nachricht selber.
+
+Beispiel:
+
+Info anzeigen:
+
+ --
+ svdrpsend plug graphlcd set ALERT.TYPE INFO
+ svdrpsend plug graphlcd set ALERT.ICON /usr/share/incons/myinfo.png
+ svdrpsend plug graphlcd set ALERT.TITLE SMART_Warnung
+ svdrpsend plug graphlcd set ALERT.ORGIN SMART_Daemon
+ svdrpsend plug graphlcd set ALERT.MESSAGE Attribute_6_changed_Value_to_45
+ svdrpsend plug graphlcd set ALERT 1
+ --
+
+Meldung löschen
+
+Vorher ALERT.ORGIN abfragen und prüfen ob die aktuell angezeigte Nachricht noch die eigene ist.
+
+ --
+ svdrpsend plug graphlcd unset ALERT
+ --

@@ -34,20 +34,33 @@
 		<image x="276" y="0" path="#LogoBackgroundRight" condition="not({VolumeIsMute})"/>
 		<image x="0" y="0" path="#MuteLeft" condition="{VolumeIsMute}"/>
 		<image x="276" y="0" path="#MuteRight" condition="{VolumeIsMute}"/>
-		<image x="30" y="10" path="#ChannelLogo" condition="file('#ChannelLogo')"/>
 
-		<block condition="not(file('#ChannelLogo'))">
-			<image x="30" y="10" path="#LogoEmpty"/>
-			<image x="40" y="20" width="68" height="68" scale="auto" path="#IconRadio" condition="{ChannelIsRadio}"/>
-			<image x="40" y="20" width="68" height="68" scale="auto" path="#IconTV" condition="not({ChannelIsRadio})"/>
-			<text x="40" width="240" y="20" height="68" color="black" valign="middle" align="right" font="FontChannelNumber">
-				{ChannelNumber}
+		<block condition="{ExtDataIsAvailable:ALERT}">
+			<image x="30" y="10" path="#LogoEmptyMessage"/>
+			<text x="40" width="240" y="20" height="126" color="black" valign="middle" align="left" multiline="yes" font="FontMessage">
+				{ExtDataItem:ALERT.TITLE}
+				{ExtDataItem:ALERT.ORGIN}
+				{ExtDataItem:ALERT.MESSAGE}
+				{ExtDataItem:ALERT.TYPE}
+				{ExtDataItem:ALERT.ICON}
 			</text>
-			<text x="40" width="240" y="99" height="38" color="black" valign="middle" align="center" scrollmode="always"
-			 font="FontChannelName" altcondition="le(FontTextWidth('FontChannelName',{ChannelName}),240)"
-			 alttext="{ChannelName}">
-				{ChannelShortName}
-			</text>
+		</block>
+
+		<block condition="not({ExtDataIsAvailable:ALERT})">
+			<image x="30" y="10" path="#ChannelLogo" condition="file('#ChannelLogo')"/>
+			<block condition="not(file('#ChannelLogo'))">
+				<image x="30" y="10" path="#LogoEmpty"/>
+				<image x="40" y="20" width="68" height="68" scale="auto" path="#IconRadio" condition="{ChannelIsRadio}"/>
+				<image x="40" y="20" width="68" height="68" scale="auto" path="#IconTV" condition="not({ChannelIsRadio})"/>
+				<text x="40" width="240" y="20" height="68" color="black" valign="middle" align="right" font="FontChannelNumber">
+					{ChannelNumber}
+				</text>
+				<text x="40" width="240" y="99" height="38" color="black" valign="middle" align="center" scrollmode="always"
+				 font="FontChannelName" altcondition="le(FontTextWidth('FontChannelName',{ChannelName}),240)"
+				 alttext="{ChannelName}">
+					{ChannelShortName}
+				</text>
+			</block>
 		</block>
 		
 		<image x1="0" y="165" path="#ProgessBarBackground"/>
