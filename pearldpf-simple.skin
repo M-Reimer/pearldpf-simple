@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<skin version="1.1" name="pearldpf-simple">
+<skin version="1.2" name="pearldpf-simple">
 
 
 <variable id="ChannelLogo" value="'{SkinPath}/channellogos/{ChannelAlias}.png'"/>
@@ -9,14 +9,14 @@
 <font id="FontMessage" url="ft2:VDRSymbolsSans-Bold.ttf:18"/>
 
 <variable id="NoChannelLogo" value="'{SkinPath}/images/logo-noLogo.png'"/>
-<variable id="LogoBackgroundLeft" value="'{SkinPath}/images/logoback_l.png'"/>
-<variable id="LogoBackgroundRight" value="'{SkinPath}/images/logoback_r.png'"/>
-<variable id="LogoEmpty" value="'{SkinPath}/images/logo-empty.png'"/>
+<variable id="LogoBackgroundLeft" value="'{SkinPath}/images/logoback_l.gif'"/>
+<variable id="LogoBackgroundRight" value="'{SkinPath}/images/logoback_r.gif'"/>
+<variable id="LogoEmpty" value="'{SkinPath}/images/logo-empty.gif'"/>
 <variable id="LogoEmptyMessage" value="'{SkinPath}/images/logo-empty-message.png'"/>
 <variable id="ProgessBarBackground" value="'{SkinPath}/images/barback.gif'"/>
 <variable id="ProgessBarForeground" value="'{SkinPath}/images/bar.gif'"/>
-<variable id="MuteLeft" value="'{SkinPath}/images/mute_l.png'"/>
-<variable id="MuteRight" value="'{SkinPath}/images/mute_r.png'"/>
+<variable id="MuteLeft" value="'{SkinPath}/images/mute_l.gif'"/>
+<variable id="MuteRight" value="'{SkinPath}/images/mute_r.gif'"/>
 <variable id="VolumeBar" value="'{SkinPath}/images/audio_volume.png'"/>
 <variable id="VolumeBarMute" value="'{SkinPath}/images/audio_volume_muted.png'"/>
 <variable id="IconTV" value="'{SkinPath}/images/Metro-Mb-Tv(3)-256.png'"/>
@@ -30,26 +30,12 @@
 		<variable id="Progress" evaluate="always" value="div(mul({PresentProgress},320),{PresentDuration})"/>
 		<variable id="RDSInfo" evaluate="always" value="{ServiceItem:radio,rds_info}" condition="{ServiceIsAvailable:radio}" default="0"/>
 	
-		<image x="0" y="0" path="#LogoBackgroundLeft" condition="not({VolumeIsMute})"/>
-		<image x="276" y="0" path="#LogoBackgroundRight" condition="not({VolumeIsMute})"/>
-		<image x="0" y="0" path="#MuteLeft" condition="{VolumeIsMute}"/>
-		<image x="276" y="0" path="#MuteRight" condition="{VolumeIsMute}"/>
 
-		<block condition="{ExtDataIsAvailable:ALERT}">
-			<image x="30" y="10" path="#LogoEmptyMessage"/>
-			<text x="40" width="240" y="20" height="126" color="black" valign="middle" align="left" multiline="yes" font="FontMessage">
-				{ExtDataItem:ALERT.TITLE}
-				{ExtDataItem:ALERT.ORGIN}
-				{ExtDataItem:ALERT.MESSAGE}
-				{ExtDataItem:ALERT.TYPE}
-				{ExtDataItem:ALERT.ICON}
-			</text>
-		</block>
+		<include path="'{SkinPath}/background.inc'"/>
 
 		<block condition="not({ExtDataIsAvailable:ALERT})">
 			<image x="30" y="10" path="#ChannelLogo" condition="file('#ChannelLogo')"/>
 			<block condition="not(file('#ChannelLogo'))">
-				<image x="30" y="10" path="#LogoEmpty"/>
 				<image x="40" y="20" width="68" height="68" scale="auto" path="#IconRadio" condition="{ChannelIsRadio}"/>
 				<image x="40" y="20" width="68" height="68" scale="auto" path="#IconTV" condition="not({ChannelIsRadio})"/>
 				<text x="40" width="240" y="20" height="68" color="black" valign="middle" align="right" font="FontChannelNumber">
@@ -63,9 +49,7 @@
 			</block>
 		</block>
 		
-		<image x1="0" y="165" path="#ProgessBarBackground"/>
 		<image x="0" width="#Progress" y="165" height="30" scale="fill" path="#ProgessBarForeground" condition="{PresentTitle}"/>
-		<rectangle x="0" width="320" y="195" height="45" color="#BarBackground" filled="yes"/>
 
 		<block condition="ne(#RDSInfo,0)">
 			<!-- Titel -->
@@ -94,6 +78,7 @@
 
 
 	<display id="volume">
+
 		<variable id="Volume1" evaluate="always" value="div(mul({VolumeCurrent},260),{VolumeTotal})"/>
 		<variable id="Volume2" evaluate="always" value="div(mul({VolumeCurrent},146),{VolumeTotal})"/>
 		<variable id="Start1" evaluate="always" value="add(30,div(sub(260,#Volume1),2))"/>
@@ -101,10 +86,21 @@
 		<image x="30" y="10" path="#LogoEmpty"/>
 		<image x="#Start1" y="#Start2" width="#Volume1" height="#Volume2" scale="auto" path="#VolumeBar" condition="not({VolumeIsMute})"/>
 		<image x="30" y="10" width="260" height="146" scale="auto" path="#VolumeBarMute" condition="{VolumeIsMute}"/>
+
 	</display>
 
 
 	<display id="replay">
+
+		<variable id="ReplayProgress" evaluate="always" value="div(mul({ReplayPositionIndex},320),{ReplayDurationIndex})"/>
+
+		<include path="'{SkinPath}/background.inc'"/>
+
+		<image x="0" width="#ReplayProgress" y="165" height="30" scale="fill" path="#ProgessBarForeground" condition="{PresentTitle}"/>
+		<text x1="5" x2="314" y="195" height="45" color="#BarForeground" valign="middle" align="center" font="FontBar" scrollmode="always" altcondition="equal(FontTextWidth('FontBar',{PresentTitle}),0)" alttext="keine Info!">
+			{ReplayTitle}
+		</text>
+
 	</display>
 
 
