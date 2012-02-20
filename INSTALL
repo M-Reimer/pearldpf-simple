@@ -13,6 +13,9 @@ Die Schriften installieren:
     Download http://font.ubuntu.com/
     Die Fonts unter /usr/local/share/fonts/truetype/ubuntu-font-family/ speichern
     ln -s /usr/local/share/fonts/truetype/ubuntu-font-family/Ubuntu-B.ttf <pluginconfdir>/graphlcd/fonts/Ubuntu-B.ttf
+  VDRSymbolsSans-Bold.ttf installieren
+    ln -s /usr/local/share/fonts/<patch to font>/VDRSymbolsSans-Bold.ttf <pluginconfdir>/graphlcd/fonts/VDRSymbolsSans-Bold.ttf
+
 
 Die Logos installieren:
   Die Logos (260x146) vom yaVDR best friend runterladen und im skinverzeichnis einen Link darauf erstellen
