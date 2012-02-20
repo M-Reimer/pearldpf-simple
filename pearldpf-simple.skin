@@ -7,6 +7,7 @@
 
 <variable id="NoChannelLogo" value="'{SkinPath}/images/logo-noLogo.png'"/>
 <variable id="LogoBackground" value="'{SkinPath}/images/logoback.gif'"/>
+<variable id="LogoEmpty" value="'{SkinPath}/images/logo-empty.png'"/>
 <variable id="ProgessBarBackground" value="'{SkinPath}/images/barback.gif'"/>
 <variable id="ProgessBarForeground" value="'{SkinPath}/images/bar.gif'"/>
 <variable id="MuteLeft" value="'{SkinPath}/images/mute_l.png'"/>
@@ -57,8 +58,10 @@
 
 
 	<display id="volume">
-		<variable id="Volume" evaluate="always" value="div(mul({VolumeCurrent},165),{VolumeTotal})"/>
-		<image x="276" width="44" y1="0" y2="add(165,#Volume)" scale="fill" path="#VolumeBar"/>
+		<variable id="Volume1" evaluate="always" value="div(mul({VolumeCurrent},260),{VolumeTotal})"/>
+		<variable id="Volume2" evaluate="always" value="div(mul({VolumeCurrent},146),{VolumeTotal})"/>
+		<image x="30" y="10" path="#LogoEmpty"/>
+		<image x="30" y="10" width="#Volume1" height="#Volume2" scale="fill" path="#NoChannelLogo"/>
 	</display>
 
 
