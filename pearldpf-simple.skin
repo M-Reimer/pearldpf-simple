@@ -9,6 +9,9 @@
 <variable id="LogoBackground" value="'{SkinPath}/images/logoback.gif'"/>
 <variable id="ProgessBarBackground" value="'{SkinPath}/images/barback.gif'"/>
 <variable id="ProgessBarForeground" value="'{SkinPath}/images/bar.gif'"/>
+<variable id="MuteLeft" value="'{SkinPath}/images/mute_l.png'"/>
+<variable id="MuteRight" value="'{SkinPath}/images/mute_r.png'"/>
+<variable id="VolumeBar" value="'{SkinPath}/images/volumebar.png'"/>
 <variable id="BarBackground" value="'0x00032B'"/>
 <variable id="BarForeground" value="'white'"/>
 
@@ -19,6 +22,8 @@
 		<variable id="RDSInfo" evaluate="always" value="{ServiceItem:radio,rds_info}" condition="{ServiceIsAvailable:radio}" default="0"/>
 	
 		<image x="0" y="0" path="#LogoBackground"/>
+		<image x="0" y="0" path="#MuteLeft" condition="{VolumeIsMute}"/>
+		<image x="276" y="0" path="#MuteRight" condition="{VolumeIsMute}"/>
 		<image x="30" y="10" path="#ChannelLogo" condition="file('#ChannelLogo')"/>
 		<image x="30" y="10" path="#NoChannelLogo" condition="not(file('#ChannelLogo'))"/>
 		<image x1="0" y="165" path="#ProgessBarBackground"/>
@@ -48,6 +53,12 @@
 			</text>
 		</block>
 
+	</display>
+
+
+	<display id="volume">
+		<variable id="Volume" evaluate="always" value="div(mul({VolumeCurrent},165),{VolumeTotal})"/>
+		<image x="276" width="44" y1="0" y2="add(165,#Volume)" scale="fill" path="#VolumeBar"/>
 	</display>
 
 
