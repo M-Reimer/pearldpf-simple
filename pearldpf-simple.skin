@@ -7,6 +7,7 @@
 <font id="FontChannelNumber" url="ft2:Ubuntu-B.ttf:78"/>
 <font id="FontSettings" url="ft2:Ubuntu-B.ttf:58"/>
 <font id="FontChannelName" url="ft2:Ubuntu-B.ttf:40"/>
+<font id="FontClock" url="ft2:courbd.ttf:80"/>
 <font id="FontMessage" url="ft2:VDRSymbolsSans-Bold.ttf:18"/>
 
 <variable id="LogoBackgroundLeft" value="'{SkinPath}/images/logoback_l.gif'"/>
@@ -34,7 +35,7 @@
 
 		<include path="'{SkinPath}/background.inc'"/>
 
-		<block condition="not({ExtDataIsAvailable:ALERT})">
+		<block condition="and(not({ExtDataIsAvailable:ALERT}),or(ge({DateTime:%S},30),not({SettingShowTimebar})))">
 			<image x="30" y="10" path="#ChannelLogo" condition="file('#ChannelLogo')"/>
 			<block condition="not(file('#ChannelLogo'))">
 				<image x="40" y="20" width="68" height="68" scale="auto" path="#IconRadio" condition="{ChannelIsRadio}"/>

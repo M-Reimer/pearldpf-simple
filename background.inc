@@ -27,3 +27,9 @@
 	</text>
 
 </block>
+
+<block condition="and(not({ExtDataIsAvailable:ALERT}),and(lt({DateTime:%S},30),{SettingShowTimebar}))">
+	<text x="40" width="240" y="20" height="126" color="black" valign="middle" align="center" multiline="no" font="FontClock">
+		{DateTime:%H}:{DateTime:%M}
+	</text>
+</block>
