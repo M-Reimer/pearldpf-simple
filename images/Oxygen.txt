@@ -1,0 +1,11 @@
+- Oxygen-dialog-warning.png
+- Oxygen-dialog-information.png
+- Oxygen-dialog-error.png
+- Oxygen-system-help.png
+
+
+Oxygen by Oxygen Team
+License: GPL
+
+http://www.iconfinder.com/search/?q=iconset%3Aoxygen
+http://www.oxygen-icons.org/

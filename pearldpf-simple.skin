@@ -9,6 +9,9 @@
 <font id="FontChannelName" url="ft2:Ubuntu-B.ttf:40"/>
 <font id="FontClock" url="ft2:courbd.ttf:80"/>
 <font id="FontMessage" url="ft2:VDRSymbolsSans-Bold.ttf:24"/>
+<font id="FontMenuTitle" url="ft2:VDRSymbolsSans-Bold.ttf:24"/>
+<font id="FontMenuItem" url="ft2:VDRSymbolsSans-Bold.ttf:18"/>
+<font id="FontMenuButton" url="ft2:VDRSymbolsSans-Bold.ttf:12"/>
 
 <variable id="LogoBackgroundLeft" value="'{SkinPath}/images/logoback_l.gif'"/>
 <variable id="LogoBackgroundRight" value="'{SkinPath}/images/logoback_r.gif'"/>
@@ -22,18 +25,18 @@
 <variable id="MuteRight" value="'{SkinPath}/images/mute_r.gif'"/>
 <variable id="VolumeBar" value="'{SkinPath}/images/audio_volume.png'"/>
 <variable id="VolumeBarMute" value="'{SkinPath}/images/audio_volume_muted.png'"/>
-<variable id="IconTV" value="'{SkinPath}/images/Metro-Mb-Tv(3)-256.png'"/>
-<variable id="IconRadio" value="'{SkinPath}/images/Metro-Radio-Black-256.png'"/>
-<variable id="IconControl" value="'{SkinPath}/images/Metro-Control-Panel2-Black-256.png'"/>
-<variable id="BarBackground" value="'0x00032B'"/>
+<variable id="IconTV" value="'{SkinPath}/images/Metro-Mb-Tv.png'"/>
+<variable id="IconRadio" value="'{SkinPath}/images/Metro-Radio-Black.png'"/>
+<variable id="IconControl" value="'{SkinPath}/images/Metro-Control-Panel2-Black.png'"/>
+<variable id="BarBackground" value="'0x04022C'"/>
 <variable id="BarForeground" value="'white'"/>
-<variable id="BarRecBackground" value="'0x0A0000'"/>
+<variable id="BarRecBackground" value="'0x480000'"/>
 <variable id="BarRecForeground" value="'white'"/>
 
 
 	<display id="normal">
 
-		<variable id="Progress" evaluate="always" default="0" value="div(mul({PresentProgress},320),{PresentDuration})" condition="gt({PresentProgress},25)"/>
+		<variable id="Progress" evaluate="always" default="0" value="div(mul({PresentProgress},320),{PresentDuration})" condition="gt({PresentProgress},0)"/>
 		<variable id="RDSInfo" evaluate="always" value="{ServiceItem:radio,rds_info}" condition="{ServiceIsAvailable:radio}" default="0"/>
 	
 
@@ -106,7 +109,7 @@
 
 	<display id="replay">
 
-		<variable id="ReplayProgress" evaluate="always" default="0" value="div(mul({ReplayPositionIndex},320),{ReplayDurationIndex})" condition="gt({ReplayPositionIndex},25)"/>
+		<variable id="ReplayProgress" evaluate="always" default="0" value="div(mul({ReplayPositionIndex},320),{ReplayDurationIndex})" condition="gt({ReplayPositionIndex},0)"/>
 
 		<include path="'{SkinPath}/background.inc'"/>
 
@@ -142,6 +145,35 @@
 
 
 	<display id="menu">
+
+		<variable id="ColMenuHeaderBG" value="'0x300060'"/>
+		<variable id="ColMenuHeaderFG" value="'white'"/>
+		<variable id="ColMenuItemCurr" value="'yellow'"/>
+		<variable id="ColMenuItem" value="'white'"/>
+
+		<variable id="MenuHeaderH" value="FontLineHeight('FontMenuTitle')" />
+		<variable id="MenuItemH" value="FontLineHeight('FontMenuItem')"/>
+		<variable id="MenuButtonH" value="add(FontLineHeight('FontMenuButton'),4)"/>
+		<variable id="MenuButtonY" value="sub(238,#MenuButtonH)"/>
+
+		<rectangle x1="0" y1="0" width="320" height="add(#MenuHeaderH,1)" color="#ColMenuHeaderBG" filled="yes"/>
+		<text x1="0" x2="-1" height="#MenuHeaderH" width="320" color="#ColMenuHeaderFG" multiline="yes" valign="middle" font="FontMenuTitle">{MenuTitle}</text>
+		<rectangle x1="0" y1="add(#MenuHeaderH,1)" width="320" x2="-1" height="2" color="#ColMenuHeaderBG" filled="yes"/>
+		<list x1="0" y1="add(#MenuHeaderH,4)" x2="-1" y2="#MenuButtonY">
+			<item height="#MenuItemH"/>
+			<text x1="0" x2="-1" y1="0" height="#MenuItemH" width="320" color="#ColMenuItemCurr" font="FontMenuItem" scrollmode="always">{MenuCurrent}</text>
+			<text x1="0" x2="-1" y1="0" height="#MenuItemH" width="320" color="#ColMenuItem"     font="FontMenuItem">{MenuItem}</text>
+		</list>
+
+		<block condition="{MenuText}">
+			<text x="5" y="add(FontLineHeight('FontMenuTitle'),4)" y2="#MenuButtonY" color="#ColMenuItem" multiline="yes" mlrelscroll="{MenuTextScroll}" font="FontMenuItem">{MenuText}</text>
+		</block>
+
+		<button condition="{ButtonRed}"    x1="0"   y1="#MenuButtonY" width="80" height="#MenuButtonH" color="red" labelcolor="white" font="FontMenuButton" >{ButtonRed}</button>
+		<button condition="{ButtonGreen}"  x1="80"  y1="#MenuButtonY" width="80" height="#MenuButtonH" color="green" labelcolor="black" font="FontMenuButton" >{ButtonGreen}</button>
+		<button condition="{ButtonYellow}" x1="160" y1="#MenuButtonY" width="80" height="#MenuButtonH" color="yellow" labelcolor="black" font="FontMenuButton" >{ButtonYellow}</button>
+		<button condition="{ButtonBlue}"   x1="240" y1="#MenuButtonY" width="80" height="#MenuButtonH" color="blue" labelcolor="white" font="FontMenuButton" >{ButtonBlue}</button>
+
 	</display>
 
 
