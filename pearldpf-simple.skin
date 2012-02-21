@@ -8,7 +8,7 @@
 <font id="FontSettings" url="ft2:Ubuntu-B.ttf:58"/>
 <font id="FontChannelName" url="ft2:Ubuntu-B.ttf:40"/>
 <font id="FontClock" url="ft2:courbd.ttf:80"/>
-<font id="FontMessage" url="ft2:VDRSymbolsSans-Bold.ttf:18"/>
+<font id="FontMessage" url="ft2:VDRSymbolsSans-Bold.ttf:24"/>
 
 <variable id="LogoBackgroundLeft" value="'{SkinPath}/images/logoback_l.gif'"/>
 <variable id="LogoBackgroundRight" value="'{SkinPath}/images/logoback_r.gif'"/>
@@ -16,6 +16,8 @@
 <variable id="LogoEmptyMessage" value="'{SkinPath}/images/logo-empty-message.gif'"/>
 <variable id="ProgessBarBackground" value="'{SkinPath}/images/barback.gif'"/>
 <variable id="ProgessBarForeground" value="'{SkinPath}/images/bar.gif'"/>
+<variable id="ProgessBarRecBackground" value="'{SkinPath}/images/barback_red.gif'"/>
+<variable id="ProgessBarRecForeground" value="'{SkinPath}/images/bar_red.gif'"/>
 <variable id="MuteLeft" value="'{SkinPath}/images/mute_l.gif'"/>
 <variable id="MuteRight" value="'{SkinPath}/images/mute_r.gif'"/>
 <variable id="VolumeBar" value="'{SkinPath}/images/audio_volume.png'"/>
@@ -25,11 +27,13 @@
 <variable id="IconControl" value="'{SkinPath}/images/Metro-Control-Panel2-Black-256.png'"/>
 <variable id="BarBackground" value="'0x00032B'"/>
 <variable id="BarForeground" value="'white'"/>
+<variable id="BarRecBackground" value="'0x0A0000'"/>
+<variable id="BarRecForeground" value="'white'"/>
 
 
 	<display id="normal">
 
-		<variable id="Progress" evaluate="always" value="div(mul({PresentProgress},320),{PresentDuration})"/>
+		<variable id="Progress" evaluate="always" default="0" value="div(mul({PresentProgress},320),{PresentDuration})" condition="gt({PresentProgress},25)"/>
 		<variable id="RDSInfo" evaluate="always" value="{ServiceItem:radio,rds_info}" condition="{ServiceIsAvailable:radio}" default="0"/>
 	
 
@@ -51,7 +55,8 @@
 			</block>
 		</block>
 		
-		<image x="0" width="#Progress" y="165" height="30" scale="fill" path="#ProgessBarForeground" condition="{PresentTitle}"/>
+		<image x="0" width="#Progress" y="165" height="30" scale="fill" path="#ProgessBarForeground" condition="and({PresentTitle},not({IsRecording}))"/>
+		<image x="0" width="#Progress" y="165" height="30" scale="fill" path="#ProgessBarRecForeground" condition="and({PresentTitle},{IsRecording})"/>
 
 		<block condition="ne(#RDSInfo,0)">
 			<!-- Titel -->
@@ -101,12 +106,14 @@
 
 	<display id="replay">
 
-		<variable id="ReplayProgress" evaluate="always" value="div(mul({ReplayPositionIndex},320),{ReplayDurationIndex})"/>
+		<variable id="ReplayProgress" evaluate="always" default="0" value="div(mul({ReplayPositionIndex},320),{ReplayDurationIndex})" condition="gt({ReplayPositionIndex},25)"/>
 
 		<include path="'{SkinPath}/background.inc'"/>
 
-		<image x="0" width="#ReplayProgress" y="165" height="30" scale="fill" path="#ProgessBarForeground" condition="{PresentTitle}"/>
-		<text x1="5" x2="314" y="195" height="45" color="#BarForeground" valign="middle" align="center" font="FontBar" scrollmode="always" altcondition="equal(FontTextWidth('FontBar',{PresentTitle}),0)" alttext="keine Info!">
+		<image x="0" width="#ReplayProgress" y="165" height="30" scale="fill" path="#ProgessBarForeground" condition="not({IsRecording})"/>
+		<image x="0" width="#ReplayProgress" y="165" height="30" scale="fill" path="#ProgessBarRecForeground" condition="{IsRecording}"/>
+	
+		<text x1="5" x2="314" y="195" height="45" color="#BarForeground" valign="middle" align="center" font="FontBar" scrollmode="always">
 			{ReplayTitle}
 		</text>
 

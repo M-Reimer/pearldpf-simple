@@ -9,9 +9,11 @@
 
 <image x="30" y="10" path="#LogoEmpty"/>
 
-<image x1="0" y="165" path="#ProgessBarBackground"/>
+<image x1="0" y="165" path="#ProgessBarBackground" condition="not({IsRecording})"/>
+<image x1="0" y="165" path="#ProgessBarRecBackground" condition="{IsRecording}"/>
 
-<rectangle x="0" width="320" y="195" height="45" color="#BarBackground" filled="yes"/>
+<rectangle x="0" width="320" y="195" height="45" color="#BarBackground" filled="yes" condition="not({IsRecording})"/>
+<rectangle x="0" width="320" y="195" height="45" color="#BarRecBackground" filled="yes" condition="{IsRecording}"/>
 
 
 <block condition="{ExtDataIsAvailable:ALERT}">
