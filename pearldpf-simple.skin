@@ -9,14 +9,18 @@
 <font id="FontChannelName" url="ft2:Ubuntu-B.ttf:40"/>
 <font id="FontClock" url="ft2:courbd.ttf:80"/>
 <font id="FontMessage" url="ft2:VDRSymbolsSans-Bold.ttf:24"/>
+<font id="FontMessageTitle" url="ft2:VDRSymbolsSans-Bold.ttf:18"/>
+<font id="FontMessageSubTitle" url="ft2:VDRSymbolsSans.ttf:16"/>
 <font id="FontMenuTitle" url="ft2:VDRSymbolsSans-Bold.ttf:24"/>
 <font id="FontMenuItem" url="ft2:VDRSymbolsSans-Bold.ttf:18"/>
 <font id="FontMenuButton" url="ft2:VDRSymbolsSans-Bold.ttf:12"/>
 
 <variable id="LogoBackgroundLeft" value="'{SkinPath}/images/logoback_l.gif'"/>
 <variable id="LogoBackgroundRight" value="'{SkinPath}/images/logoback_r.gif'"/>
-<variable id="LogoEmpty" value="'{SkinPath}/images/logo-empty.gif'"/>
-<variable id="LogoEmptyMessage" value="'{SkinPath}/images/logo-empty-message.gif'"/>
+<variable id="LogoEmpty" value="'{SkinPath}/images/logo-empty.png'"/>
+<variable id="LogoEmptyMessage" value="'{SkinPath}/images/logo-empty-message.png'"/>
+<variable id="LogoEmptyError" value="'{SkinPath}/images/logo-empty-error.png'"/>
+<variable id="LogoEmptyWarning" value="'{SkinPath}/images/logo-empty-warning.png'"/>
 <variable id="ProgessBarBackground" value="'{SkinPath}/images/barback.gif'"/>
 <variable id="ProgessBarForeground" value="'{SkinPath}/images/bar.gif'"/>
 <variable id="ProgessBarRecBackground" value="'{SkinPath}/images/barback_red.gif'"/>
@@ -32,6 +36,10 @@
 <variable id="BarForeground" value="'white'"/>
 <variable id="BarRecBackground" value="'0x480000'"/>
 <variable id="BarRecForeground" value="'white'"/>
+<variable id="MessageError" value="'{SkinPath}/images/Oxygen-dialog-error.png'"/>
+<variable id="MessageInformation" value="'{SkinPath}/images/Oxygen-dialog-information.png'"/>
+<variable id="MessageWarning" value="'{SkinPath}/images/Oxygen-dialog-warning.png'"/>
+<variable id="MessageHelp" value="'{SkinPath}/images/Oxygen-system-help.png'"/>
 
 
 	<display id="normal">
@@ -39,7 +47,6 @@
 		<variable id="Progress" evaluate="always" default="0" value="div(mul({PresentProgress},320),{PresentDuration})" condition="gt({PresentProgress},0)"/>
 		<variable id="RDSInfo" evaluate="always" value="{ServiceItem:radio,rds_info}" condition="{ServiceIsAvailable:radio}" default="0"/>
 	
-
 		<include path="'{SkinPath}/background.inc'"/>
 
 		<block condition="and(not({ExtDataIsAvailable:ALERT}),or(ge({DateTime:%S},30),not({SettingShowTimebar})))">
