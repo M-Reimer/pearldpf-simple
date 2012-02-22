@@ -2,7 +2,8 @@
 <skin version="1.2" name="pearldpf-simple">
 
 
-<variable id="ChannelLogo" value="'{SkinPath}/channellogos/{ChannelAlias}.png'"/>
+<include path="'{SkinPath}/settings.conf'"/>
+
 <font id="FontBar" url="ft2:Ubuntu-B.ttf:36"/>
 <font id="FontChannelNumber" url="ft2:Ubuntu-B.ttf:78"/>
 <font id="FontSettings" url="ft2:Ubuntu-B.ttf:58"/>
@@ -15,31 +16,27 @@
 <font id="FontMenuItem" url="ft2:VDRSymbolsSans-Bold.ttf:18"/>
 <font id="FontMenuButton" url="ft2:VDRSymbolsSans-Bold.ttf:12"/>
 
-<variable id="LogoBackgroundLeft" value="'{SkinPath}/images/logoback_l.gif'"/>
-<variable id="LogoBackgroundRight" value="'{SkinPath}/images/logoback_r.gif'"/>
-<variable id="LogoEmpty" value="'{SkinPath}/images/logo-empty.png'"/>
-<variable id="LogoEmptyMessage" value="'{SkinPath}/images/logo-empty-message.png'"/>
-<variable id="LogoEmptyError" value="'{SkinPath}/images/logo-empty-error.png'"/>
-<variable id="LogoEmptyWarning" value="'{SkinPath}/images/logo-empty-warning.png'"/>
+<variable id="LogoBackground" value="'{SkinPath}/images/logoback_normal.png'" condition="eq(#Style.Gradient,1)"/>
+<variable id="LogoBackground" value="'{SkinPath}/images/logoback_normal_ng.png'" condition="eq(#Style.Gradient,0)"/>
+<variable id="LogoBackgroundMute" value="'{SkinPath}/images/logoback_mute.png'" condition="eq(#Style.Gradient,1)"/>
+<variable id="LogoBackgroundMute" value="'{SkinPath}/images/logoback_mute_ng.png'" condition="eq(#Style.Gradient,0)"/>
 <variable id="ProgessBarBackground" value="'{SkinPath}/images/barback.gif'"/>
 <variable id="ProgessBarForeground" value="'{SkinPath}/images/bar.gif'"/>
 <variable id="ProgessBarRecBackground" value="'{SkinPath}/images/barback_red.gif'"/>
 <variable id="ProgessBarRecForeground" value="'{SkinPath}/images/bar_red.gif'"/>
-<variable id="MuteLeft" value="'{SkinPath}/images/mute_l.gif'"/>
-<variable id="MuteRight" value="'{SkinPath}/images/mute_r.gif'"/>
 <variable id="VolumeBar" value="'{SkinPath}/images/audio_volume.png'"/>
 <variable id="VolumeBarMute" value="'{SkinPath}/images/audio_volume_muted.png'"/>
 <variable id="IconTV" value="'{SkinPath}/images/Metro-Mb-Tv.png'"/>
 <variable id="IconRadio" value="'{SkinPath}/images/Metro-Radio-Black.png'"/>
-<variable id="IconControl" value="'{SkinPath}/images/Metro-Control-Panel2-Black.png'"/>
-<variable id="BarBackground" value="'0x04022C'"/>
-<variable id="BarForeground" value="'white'"/>
-<variable id="BarRecBackground" value="'0x480000'"/>
-<variable id="BarRecForeground" value="'white'"/>
+<variable id="AudioStereo" value="'{SkinPath}/images/audioStereo.png'"/>
+<variable id="AudioLeft" value="'{SkinPath}/images/audioLeft.png'"/>
+<variable id="AudioRight" value="'{SkinPath}/images/audioRight.png'"/>
 <variable id="MessageError" value="'{SkinPath}/images/Oxygen-dialog-error.png'"/>
 <variable id="MessageInformation" value="'{SkinPath}/images/Oxygen-dialog-information.png'"/>
 <variable id="MessageWarning" value="'{SkinPath}/images/Oxygen-dialog-warning.png'"/>
 <variable id="MessageHelp" value="'{SkinPath}/images/Oxygen-system-help.png'"/>
+
+<include path="'{SkinPath}/colors.inc'"/>
 
 
 	<display id="normal">
@@ -47,11 +44,11 @@
 		<variable id="Progress" evaluate="always" default="0" value="div(mul({PresentProgress},320),{PresentDuration})" condition="gt({PresentProgress},0)"/>
 		<variable id="RDSInfo" evaluate="always" value="{ServiceItem:radio,rds_info}" condition="{ServiceIsAvailable:radio}" default="0"/>
 	
-		<include path="'{SkinPath}/background.inc'"/>
-
 		<block condition="and(not({ExtDataIsAvailable:ALERT}),or(ge({DateTime:%S},30),not({SettingShowTimebar})))">
-			<image x="30" y="10" path="#ChannelLogo" condition="file('#ChannelLogo')"/>
+			<rectangle x="30" width="260" y="10" height="146" color="#Color.Logo.Background" filled="yes"/>
+			<image x="30" y="10" width="260" height="146" scale="auto" path="#ChannelLogo" condition="file('#ChannelLogo')"/>
 			<block condition="not(file('#ChannelLogo'))">
+				<rectangle x="30" width="260" y="10" height="146" color="#Color.Message.Blank" filled="yes"/>
 				<image x="40" y="20" width="68" height="68" scale="auto" path="#IconRadio" condition="{ChannelIsRadio}"/>
 				<image x="40" y="20" width="68" height="68" scale="auto" path="#IconTV" condition="not({ChannelIsRadio})"/>
 				<text x="108" width="172" y="8" height="80" color="black" valign="middle" align="right" font="FontChannelNumber">
@@ -64,35 +61,37 @@
 				</text>
 			</block>
 		</block>
-		
-		<image x="0" width="#Progress" y="165" height="30" scale="fill" path="#ProgessBarForeground" condition="and({PresentTitle},not({IsRecording}))"/>
-		<image x="0" width="#Progress" y="165" height="30" scale="fill" path="#ProgessBarRecForeground" condition="and({PresentTitle},{IsRecording})"/>
+
+		<include path="'{SkinPath}/background.inc'"/>
+
+		<image x="0" width="#Progress" y="165" height="30" scale="fill" path="#ProgessBarForeground" condition="and(ne(FontTextWidth('FontBar',{PresentTitle}),0),not({IsRecording}))"/>
+		<image x="0" width="#Progress" y="165" height="30" scale="fill" path="#ProgessBarRecForeground" condition="and(ne(FontTextWidth('FontBar',{PresentTitle}),0),{IsRecording})"/>
 
 		<block condition="ne(#RDSInfo,0)">
 			<!-- Titel -->
-			<text x1="5" x2="314" y="195" height="45" color="#BarForeground" valign="middle" align="center" font="FontBar" scrollmode="always" condition="and(ne(FontTextWidth('FontBar',{PresentTitle}),0),equal(#RDSInfo,0))">
+			<text x1="5" x2="314" y="195" height="45" color="#Color.Bar.Foreground" valign="middle" align="center" font="FontBar" scrollmode="always" condition="and(ne(FontTextWidth('FontBar',{PresentTitle}),0),equal(#RDSInfo,0))">
 				{PresentTitle}
 			</text>
-			<text x1="5" x2="314" y="195" height="45" color="#BarForeground" valign="middle" align="center" font="FontBar" scrollmode="always" condition="and(equal(FontTextWidth('FontBar',{PresentTitle}),0),equal(#RDSInfo,0))">
+			<text x1="5" x2="314" y="195" height="45" color="#Color.Bar.Foreground" valign="middle" align="center" font="FontBar" scrollmode="always" condition="and(equal(FontTextWidth('FontBar',{PresentTitle}),0),equal(#RDSInfo,0))">
 				keine Info!
 			</text>
 			<!-- RTitle, RArtist -->
-			<text x1="5" x2="314" y="195" height="45" color="#BarForeground" valign="middle" align="center" font="FontBar" scrollmode="always" condition="not(ne(#RDSInfo,2))">
+			<text x1="5" x2="314" y="195" height="45" color="#Color.Bar.Foreground" valign="middle" align="center" font="FontBar" scrollmode="always" condition="not(ne(#RDSInfo,2))">
 				{ServiceItem:radio,title} - {ServiceItem:radio,artist}
 			</text>
 			<!-- Radiotext -->
-			<text x1="5" x2="314" y="195" height="45" color="#BarForeground" valign="middle" align="center" font="FontBar" scrollmode="always" condition="not(ne(#RDSInfo,1))">
+			<text x1="5" x2="314" y="195" height="45" color="#Color.Bar.Foreground" valign="middle" align="center" font="FontBar" scrollmode="always" condition="not(ne(#RDSInfo,1))">
 				{ServiceItem:radio,text}
 			</text>
 		</block>
 		<block condition="equal(#RDSInfo,0)">
 			<block condition="{PresentShortText}">
-				<text x1="5" x2="314" y="195" height="45" color="#BarForeground" valign="middle" align="center" font="FontBar" scrollmode="always" altcondition="equal(FontTextWidth('FontBar',{PresentTitle}),0)" alttext="keine Info!">
+				<text x1="5" x2="314" y="195" height="45" color="#Color.Bar.Foreground" valign="middle" align="center" font="FontBar" scrollmode="always" altcondition="equal(FontTextWidth('FontBar',{PresentTitle}),0)" alttext="keine Info!">
 					{PresentTitle} - {PresentShortText}
 				</text>
 			</block>
 			<block condition="not({PresentShortText})">
-				<text x1="5" x2="314" y="195" height="45" color="#BarForeground" valign="middle" align="center" font="FontBar" scrollmode="always" altcondition="equal(FontTextWidth('FontBar',{PresentTitle}),0)" alttext="keine Info!">
+				<text x1="5" x2="314" y="195" height="45" color="#Color.Bar.Foreground" valign="middle" align="center" font="FontBar" scrollmode="always" altcondition="equal(FontTextWidth('FontBar',{PresentTitle}),0)" alttext="keine Info!">
 					{PresentTitle}
 				</text>
 			</block>
@@ -107,9 +106,11 @@
 		<variable id="Volume2" evaluate="always" value="div(mul({VolumeCurrent},146),{VolumeTotal})"/>
 		<variable id="Start1" evaluate="always" value="add(30,div(sub(260,#Volume1),2))"/>
 		<variable id="Start2" evaluate="always" value="add(10,div(sub(146,#Volume2),2))"/>
-		<image x="30" y="10" path="#LogoEmpty"/>
+		<rectangle x="30" width="260" y="10" height="146" color="#Color.Message.Blank" filled="yes"/>
 		<image x="#Start1" y="#Start2" width="#Volume1" height="#Volume2" scale="auto" path="#VolumeBar" condition="not({VolumeIsMute})"/>
 		<image x="30" y="10" width="260" height="146" scale="auto" path="#VolumeBarMute" condition="{VolumeIsMute}"/>
+		<image x="0" y="0" path="#LogoBackground" condition="not({VolumeIsMute})"/>
+		<image x="0" y="0" path="#LogoBackgroundMute" condition="{VolumeIsMute}"/>
 
 	</display>
 
@@ -123,7 +124,7 @@
 		<image x="0" width="#ReplayProgress" y="165" height="30" scale="fill" path="#ProgessBarForeground" condition="not({IsRecording})"/>
 		<image x="0" width="#ReplayProgress" y="165" height="30" scale="fill" path="#ProgessBarRecForeground" condition="{IsRecording}"/>
 	
-		<text x1="5" x2="314" y="195" height="45" color="#BarForeground" valign="middle" align="center" font="FontBar" scrollmode="always">
+		<text x1="5" x2="314" y="195" height="45" color="#Color.Bar.Foreground" valign="middle" align="center" font="FontBar" scrollmode="always">
 			{ReplayTitle}
 		</text>
 
@@ -131,7 +132,7 @@
 
 
 	<display id="message">
-		<image x="30" y="10" path="#LogoEmptyMessage"/>
+		<rectangle x="30" width="260" y="10" height="146" color="#Color.Bar.Foreground" filled="yes"/>
 		<text x="40" width="240" y="20" height="126" color="black" valign="middle" align="left" multiline="yes" font="FontMessage">
 			{Message}
 		</text>
@@ -139,8 +140,10 @@
 
 
 	<display id="audio">
-		<image x="30" y="10" path="#LogoEmpty"/>
-		<image x="40" y="20" width="68" height="68" scale="auto" path="#IconControl"/>
+		<rectangle x="30" width="260" y="10" height="146" color="#Color.Message.Info" filled="yes"/>
+		<image x="40" y="20" width="68" height="68" scale="auto" path="#AudioStereo" condition="eq({AudioChannel},0)"/>
+		<image x="40" y="20" width="68" height="68" scale="auto" path="#AudioLeft" condition="eq({AudioChannel},1)"/>
+		<image x="40" y="20" width="68" height="68" scale="auto" path="#AudioRight" condition="eq({AudioChannel},2)"/>
 		<text x="108" width="172" y="13" height="80" color="black" valign="middle" align="right" font="FontSettings">
 			Audio
 		</text>

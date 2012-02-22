@@ -1,6 +1,5 @@
 - Metro-Mb-Tv.png (Metro-Mb-Tv(3)-256.png)
 - Metro-Radio-Black.png (Metro-Radio-Black-256)
-- Metro-Control-Panel2-Black.png (Metro-Control-Panel2-Black-256)
 
 
 MetroStation By Yanko Andreev
