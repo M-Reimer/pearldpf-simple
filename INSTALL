@@ -15,7 +15,9 @@ Die Schriften installieren:
     ln -s /usr/local/share/fonts/truetype/ubuntu-font-family/Ubuntu-B.ttf <pluginconfdir>/graphlcd/fonts/Ubuntu-B.ttf
 
   VDRSymbolsSans-Bold.ttf installieren
+  VDRSymbolsSans.ttf installieren
     ln -s /usr/local/share/fonts/<patch to font>/VDRSymbolsSans-Bold.ttf <pluginconfdir>/graphlcd/fonts/VDRSymbolsSans-Bold.ttf
+    ln -s /usr/local/share/fonts/<patch to font>/VDRSymbolsSans.ttf <pluginconfdir>/graphlcd/fonts/VDRSymbolsSans.ttf
 
   Courier New Bold (courbd.ttf) installieren
     Debian/Ubuntu: "apt-get install ttf-mscorefonts-installer"
