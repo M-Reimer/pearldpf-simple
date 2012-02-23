@@ -12,9 +12,10 @@
 <font id="FontMessage" url="ft2:VDRSymbolsSans-Bold.ttf:24"/>
 <font id="FontMessageTitle" url="ft2:VDRSymbolsSans-Bold.ttf:18"/>
 <font id="FontMessageSubTitle" url="ft2:VDRSymbolsSans.ttf:16"/>
-<font id="FontMenuTitle" url="ft2:VDRSymbolsSans-Bold.ttf:24"/>
-<font id="FontMenuItem" url="ft2:VDRSymbolsSans-Bold.ttf:18"/>
-<font id="FontMenuButton" url="ft2:VDRSymbolsSans-Bold.ttf:12"/>
+<font id="FontMenuTitle" url="ft2:VDRSymbolsSans-Bold.ttf:18"/>
+<font id="FontMenuItem" url="ft2:VDRSymbolsSans.ttf:15"/>
+<font id="FontMenuText" url="ft2:VDRSymbolsSans.ttf:13"/>
+<font id="FontMenuButton" url="ft2:VDRSymbolsSans-Bold.ttf:11"/>
 
 <variable id="LogoBackground" value="'{SkinPath}/images/logoback_normal.png'" condition="eq(#Style.Gradient,1)"/>
 <variable id="LogoBackground" value="'{SkinPath}/images/logoback_normal_ng.png'" condition="eq(#Style.Gradient,0)"/>
@@ -24,6 +25,14 @@
 <variable id="ProgessBarForeground" value="'{SkinPath}/images/bar_normal_front.png'"/>
 <variable id="ProgessBarRecBackground" value="'{SkinPath}/images/bar_record_back.png'"/>
 <variable id="ProgessBarRecForeground" value="'{SkinPath}/images/bar_record_front.png'"/>
+<variable id="ButtonRed" value="'{SkinPath}/images/button_red.png'"/>
+<variable id="ButtonGreen" value="'{SkinPath}/images/button_green.png'"/>
+<variable id="ButtonYellow" value="'{SkinPath}/images/button_yellow.png'"/>
+<variable id="ButtonBlue" value="'{SkinPath}/images/button_blue.png'"/>
+<variable id="ButtonTopNormal" value="'{SkinPath}/images/button_top_normal.png'"/>
+<variable id="ButtonTopRecord" value="'{SkinPath}/images/button_top_record.png'"/>
+<variable id="ButtonBarNormal" value="'{SkinPath}/images/button_bar_normal.png'"/>
+<variable id="ButtonBarRecord" value="'{SkinPath}/images/button_bar_record.png'"/>
 
 <variable id="VolumeBar" value="'{SkinPath}/images/audio_volume.png'"/>
 <variable id="VolumeBarMute" value="'{SkinPath}/images/audio_volume_muted.png'"/>
@@ -167,34 +176,42 @@
 
 
 	<display id="menu">
+		<rectangle x1="0" x2="319" y1="0" y2="239" color="white" filled="yes"/>
 
-		<variable id="ColMenuHeaderBG" value="'0x300060'"/>
-		<variable id="ColMenuHeaderFG" value="'white'"/>
-		<variable id="ColMenuItemCurr" value="'yellow'"/>
-		<variable id="ColMenuItem" value="'white'"/>
+		<image x="0" y="0" path="#ButtonTopNormal" condition="not({IsRecording})"/>
+		<image x="0" y="0" path="#ButtonTopRecord" condition="{IsRecording}"/>
+		<text x1="5" y="5" height="25" width="320" color="white" valign="middle" font="FontMenuTitle">{MenuTitle}</text>
 
-		<variable id="MenuHeaderH" value="FontLineHeight('FontMenuTitle')" />
-		<variable id="MenuItemH" value="FontLineHeight('FontMenuItem')"/>
-		<variable id="MenuButtonH" value="add(FontLineHeight('FontMenuButton'),4)"/>
-		<variable id="MenuButtonY" value="sub(238,#MenuButtonH)"/>
-
-		<rectangle x1="0" y1="0" width="320" height="add(#MenuHeaderH,1)" color="#ColMenuHeaderBG" filled="yes"/>
-		<text x1="0" x2="-1" height="#MenuHeaderH" width="320" color="#ColMenuHeaderFG" multiline="yes" valign="middle" font="FontMenuTitle">{MenuTitle}</text>
-		<rectangle x1="0" y1="add(#MenuHeaderH,1)" width="320" x2="-1" height="2" color="#ColMenuHeaderBG" filled="yes"/>
-		<list x1="0" y1="add(#MenuHeaderH,4)" x2="-1" y2="#MenuButtonY">
-			<item height="#MenuItemH" scrollmode="always"/>
-			<text x1="0" x2="-1" y1="0" scrollmode="always" height="#MenuItemH" width="320" color="#ColMenuItemCurr" font="FontMenuItem" scrollmode="always">{MenuCurrent}</text>
-			<text x1="0" x2="-1" y1="0" scrollmode="always" height="#MenuItemH" width="320" color="#ColMenuItem"     font="FontMenuItem">{MenuItem}</text>
+		<list x1="0" x2="319" y1="31" y2="218">
+			<item height="17" scrollmode="always"/>
+			<image x="0" y="0" path="#ButtonBarNormal" condition="and({MenuCurrent},not({IsRecording}))"/>
+			<image x="0" y="0" path="#ButtonBarRecord" condition="and({MenuCurrent},{IsRecording})"/>
+			<text x1="3" x2="316" y1="0" scrollmode="always" height="17" valign="middle" color="white" font="FontMenuItem" scrollmode="always">{MenuCurrent}</text>
+			<text x1="3" x2="316" y1="0" scrollmode="always" height="17" valign="middle" color="black"     font="FontMenuItem">{MenuItem}</text>
 		</list>
 
 		<block condition="{MenuText}">
-			<text x="5" y="add(FontLineHeight('FontMenuTitle'),4)" y2="#MenuButtonY" color="#ColMenuItem" multiline="yes" mlrelscroll="{MenuTextScroll}" scrollmode="always" font="FontMenuItem">{MenuText}</text>
+			<text x1="3" x2="316" y1="31" y2="218" color="black" multiline="yes" mlrelscroll="{MenuTextScroll}" scrollmode="always" font="FontMenuText">
+				{MenuText}
+			</text>
 		</block>
 
-		<button condition="{ButtonRed}"    x1="0"   y1="#MenuButtonY" width="80" height="#MenuButtonH" color="red" labelcolor="white" font="FontMenuButton" >{ButtonRed}</button>
-		<button condition="{ButtonGreen}"  x1="80"  y1="#MenuButtonY" width="80" height="#MenuButtonH" color="green" labelcolor="black" font="FontMenuButton" >{ButtonGreen}</button>
-		<button condition="{ButtonYellow}" x1="160" y1="#MenuButtonY" width="80" height="#MenuButtonH" color="yellow" labelcolor="black" font="FontMenuButton" >{ButtonYellow}</button>
-		<button condition="{ButtonBlue}"   x1="240" y1="#MenuButtonY" width="80" height="#MenuButtonH" color="blue" labelcolor="white" font="FontMenuButton" >{ButtonBlue}</button>
+		<image x="0" y="220" path="#ButtonRed" condition="{ButtonRed}"/>
+		<text x="2" width="76" y="220" height="20" color="black" scrollmode="always" valign="middle" align="center" font="FontMenuButton" condition="{ButtonRed}">
+			{ButtonRed}
+		</text>
+		<image x="80" y="220" path="#ButtonGreen" condition="{ButtonGreen}"/>
+		<text x="82" width="76" y="220" height="20" color="black" scrollmode="always" valign="middle" align="center" font="FontMenuButton" condition="{ButtonGreen}">
+			{ButtonGreen}
+		</text>
+		<image x="160" y="220" path="#ButtonYellow" condition="{ButtonYellow}"/>
+		<text x="162" width="76" y="220" height="20" color="black" scrollmode="always" valign="middle" align="center" font="FontMenuButton" condition="{ButtonYellow}">
+			{ButtonYellow}
+		</text>
+		<image x="240" y="220" path="#ButtonBlue" condition="{ButtonBlue}"/>
+		<text x="242" width="76" y="220" height="20" color="black" scrollmode="always" valign="middle" align="center" font="FontMenuButton" condition="{ButtonBlue}">
+			{ButtonBlue}
+		</text>
 
 	</display>
 

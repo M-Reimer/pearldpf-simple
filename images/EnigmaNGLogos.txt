@@ -1,5 +1,0 @@
-- Enigma-Skin-audio_left.png (audioLeft.png)
-- Enigma-Skin-audio_right.png (audioRight.png)
-- Enigma-Skin-audio_stereo.png (audioStereo.png)
-
-http://www.vdr-portal.de/board17-developer/board21-vdr-plugins/p420491-alles-rund-um-enigma-04-02-2006-neue-version-v0-4-pre7/#post420491
