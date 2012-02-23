@@ -20,17 +20,21 @@
 <variable id="LogoBackground" value="'{SkinPath}/images/logoback_normal_ng.png'" condition="eq(#Style.Gradient,0)"/>
 <variable id="LogoBackgroundMute" value="'{SkinPath}/images/logoback_mute.png'" condition="eq(#Style.Gradient,1)"/>
 <variable id="LogoBackgroundMute" value="'{SkinPath}/images/logoback_mute_ng.png'" condition="eq(#Style.Gradient,0)"/>
-<variable id="ProgessBarBackground" value="'{SkinPath}/images/barback.gif'"/>
-<variable id="ProgessBarForeground" value="'{SkinPath}/images/bar.gif'"/>
-<variable id="ProgessBarRecBackground" value="'{SkinPath}/images/barback_red.gif'"/>
-<variable id="ProgessBarRecForeground" value="'{SkinPath}/images/bar_red.gif'"/>
+<variable id="ProgessBarBackground" value="'{SkinPath}/images/bar_normal_back.png'"/>
+<variable id="ProgessBarForeground" value="'{SkinPath}/images/bar_normal_front.png'"/>
+<variable id="ProgessBarRecBackground" value="'{SkinPath}/images/bar_record_back.png'"/>
+<variable id="ProgessBarRecForeground" value="'{SkinPath}/images/bar_record_front.png'"/>
+
 <variable id="VolumeBar" value="'{SkinPath}/images/audio_volume.png'"/>
 <variable id="VolumeBarMute" value="'{SkinPath}/images/audio_volume_muted.png'"/>
-<variable id="IconTV" value="'{SkinPath}/images/Metro-Mb-Tv.png'"/>
-<variable id="IconRadio" value="'{SkinPath}/images/Metro-Radio-Black.png'"/>
-<variable id="AudioStereo" value="'{SkinPath}/images/audioStereo.png'"/>
-<variable id="AudioLeft" value="'{SkinPath}/images/audioLeft.png'"/>
-<variable id="AudioRight" value="'{SkinPath}/images/audioRight.png'"/>
+
+<variable id="IconTV" value="'{SkinPath}/images/MetroStation-tv.png'"/>
+<variable id="IconRadio" value="'{SkinPath}/images/MetroStation-radio.png'"/>
+
+<variable id="AudioStereo" value="'{SkinPath}/images/Enigma-Skin-audio_stereo.png'"/>
+<variable id="AudioLeft" value="'{SkinPath}/images/Enigma-Skin-audio_left.png'"/>
+<variable id="AudioRight" value="'{SkinPath}/images/Enigma-Skin-audio_right.png'"/>
+
 <variable id="MessageError" value="'{SkinPath}/images/Oxygen-dialog-error.png'"/>
 <variable id="MessageInformation" value="'{SkinPath}/images/Oxygen-dialog-information.png'"/>
 <variable id="MessageWarning" value="'{SkinPath}/images/Oxygen-dialog-warning.png'"/>
@@ -119,6 +123,8 @@
 
 		<variable id="ReplayProgress" evaluate="always" default="0" value="div(mul({ReplayPositionIndex},320),{ReplayDurationIndex})" condition="gt({ReplayPositionIndex},0)"/>
 
+		<rectangle x="30" width="260" y="10" height="146" color="#Color.Message.Blank" filled="yes"/>
+
 		<include path="'{SkinPath}/background.inc'"/>
 
 		<image x="0" width="#ReplayProgress" y="165" height="30" scale="fill" path="#ProgessBarForeground" condition="not({IsRecording})"/>
@@ -132,7 +138,10 @@
 
 
 	<display id="message">
-		<rectangle x="30" width="260" y="10" height="146" color="#Color.Bar.Foreground" filled="yes"/>
+		<rectangle x="30" width="260" y="10" height="146" color="#Color.Message.Info" filled="yes"/>
+		<image x="0" y="0" path="#LogoBackground" condition="not({VolumeIsMute})"/>
+		<image x="0" y="0" path="#LogoBackgroundMute" condition="{VolumeIsMute}"/>
+
 		<text x="40" width="240" y="20" height="126" color="black" valign="middle" align="left" multiline="yes" font="FontMessage">
 			{Message}
 		</text>
@@ -140,7 +149,10 @@
 
 
 	<display id="audio">
-		<rectangle x="30" width="260" y="10" height="146" color="#Color.Message.Info" filled="yes"/>
+		<rectangle x="30" width="260" y="10" height="146" color="#Color.Message.Blank" filled="yes"/>
+		<image x="0" y="0" path="#LogoBackground" condition="not({VolumeIsMute})"/>
+		<image x="0" y="0" path="#LogoBackgroundMute" condition="{VolumeIsMute}"/>
+
 		<image x="40" y="20" width="68" height="68" scale="auto" path="#AudioStereo" condition="eq({AudioChannel},0)"/>
 		<image x="40" y="20" width="68" height="68" scale="auto" path="#AudioLeft" condition="eq({AudioChannel},1)"/>
 		<image x="40" y="20" width="68" height="68" scale="auto" path="#AudioRight" condition="eq({AudioChannel},2)"/>
@@ -170,13 +182,13 @@
 		<text x1="0" x2="-1" height="#MenuHeaderH" width="320" color="#ColMenuHeaderFG" multiline="yes" valign="middle" font="FontMenuTitle">{MenuTitle}</text>
 		<rectangle x1="0" y1="add(#MenuHeaderH,1)" width="320" x2="-1" height="2" color="#ColMenuHeaderBG" filled="yes"/>
 		<list x1="0" y1="add(#MenuHeaderH,4)" x2="-1" y2="#MenuButtonY">
-			<item height="#MenuItemH"/>
-			<text x1="0" x2="-1" y1="0" height="#MenuItemH" width="320" color="#ColMenuItemCurr" font="FontMenuItem" scrollmode="always">{MenuCurrent}</text>
-			<text x1="0" x2="-1" y1="0" height="#MenuItemH" width="320" color="#ColMenuItem"     font="FontMenuItem">{MenuItem}</text>
+			<item height="#MenuItemH" scrollmode="always"/>
+			<text x1="0" x2="-1" y1="0" scrollmode="always" height="#MenuItemH" width="320" color="#ColMenuItemCurr" font="FontMenuItem" scrollmode="always">{MenuCurrent}</text>
+			<text x1="0" x2="-1" y1="0" scrollmode="always" height="#MenuItemH" width="320" color="#ColMenuItem"     font="FontMenuItem">{MenuItem}</text>
 		</list>
 
 		<block condition="{MenuText}">
-			<text x="5" y="add(FontLineHeight('FontMenuTitle'),4)" y2="#MenuButtonY" color="#ColMenuItem" multiline="yes" mlrelscroll="{MenuTextScroll}" font="FontMenuItem">{MenuText}</text>
+			<text x="5" y="add(FontLineHeight('FontMenuTitle'),4)" y2="#MenuButtonY" color="#ColMenuItem" multiline="yes" mlrelscroll="{MenuTextScroll}" scrollmode="always" font="FontMenuItem">{MenuText}</text>
 		</block>
 
 		<button condition="{ButtonRed}"    x1="0"   y1="#MenuButtonY" width="80" height="#MenuButtonH" color="red" labelcolor="white" font="FontMenuButton" >{ButtonRed}</button>

@@ -3,9 +3,11 @@
 #
 # apt-get install python-cairo
 #
+from __future__ import division
 
 import math
 import cairo
+from PIL import Image
 
 def logoback(filename, start ,stop):
 	WIDTH, HEIGHT = 320, 165
@@ -52,8 +54,72 @@ def logoback(filename, start ,stop):
 
 	surface.write_to_png (filename) # Output to PNG
 
+def bar(filename, startR, startG, startB, middleR, middleG, middleB ,stopR ,stopG ,stopB):
+	WIDTH, HEIGHT = 320, 30
+
+	surface = cairo.ImageSurface (cairo.FORMAT_ARGB32, WIDTH, HEIGHT)
+	ctx = cairo.Context (surface)
+
+	pat = cairo.LinearGradient (0, 0, 0, HEIGHT)
+	pat.add_color_stop_rgb (0.0, startR, startG, startB) # First stop, 50% opacity
+	pat.add_color_stop_rgb (0.2, middleR, middleG ,middleB) # Last stop, 100% opacity
+	pat.add_color_stop_rgb (1.0, stopR, stopG ,stopB) # Last stop, 100% opacity
+	ctx.rectangle (0, 0, WIDTH, HEIGHT)
+	ctx.set_source (pat)
+	ctx.fill ()
+
+	surface.write_to_png (filename) # Output to PNG
+
 
 logoback("logoback_normal.png", 1, 0)
 logoback("logoback_mute.png", 0.7, 0)
 logoback("logoback_normal_ng.png", 0, 0)
 logoback("logoback_mute_ng.png", 0.3, 0.3)
+
+#bar("bar_back.png", 4/255, 246/255, 244/255, 36/255, 82/255, 132/255, 4/255, 2/255, 44/255)
+#bar("bar_back.png", 1, 0, 0, 0, 1, 0)
+
+
+im = Image.open("SOURCE_button_bar_normal.png")
+imnew = Image.new('RGBA', (320,17))
+reg=im.crop((0,0,50,17))
+imnew.paste(reg,(0,0,50,17))
+reg=im.crop((50,0,100,17))
+imnew.paste(reg,(270,0,320,17))
+reg=im.crop((10,0,90,17))
+imnew.paste(reg,(50,0,130,17))
+imnew.paste(reg,(130,0,210,17))
+imnew.paste(reg,(210,0,290,17))
+imnew.save("button_bar_normal.png", "PNG")
+
+im = Image.open("SOURCE_button_bar_record.png")
+imnew = Image.new('RGBA', (320,17))
+reg=im.crop((0,0,50,17))
+imnew.paste(reg,(0,0,50,17))
+reg=im.crop((50,0,100,17))
+imnew.paste(reg,(270,0,320,17))
+reg=im.crop((10,0,90,17))
+imnew.paste(reg,(50,0,130,17))
+imnew.paste(reg,(130,0,210,17))
+imnew.paste(reg,(210,0,290,17))
+imnew.save("button_bar_record.png", "PNG")
+
+im = Image.open("SOURCE_button_top_normal.png")
+imnew = Image.new('RGBA', (100,31))
+reg=im.crop((0,0,100,15))
+imnew.paste(reg,(0,0,100,15))
+reg=im.crop((0,15,100,17))
+imnew.paste(reg,(0,15,100,17))
+reg=im.crop((0,15,100,30))
+imnew.paste(reg,(0,16,100,31))
+imnew.save("button_top_normal.png", "PNG")
+
+im = Image.open("SOURCE_button_top_record.png")
+imnew = Image.new('RGBA', (100,31))
+reg=im.crop((0,0,100,15))
+imnew.paste(reg,(0,0,100,15))
+reg=im.crop((0,15,100,17))
+imnew.paste(reg,(0,15,100,17))
+reg=im.crop((0,15,100,30))
+imnew.paste(reg,(0,16,100,31))
+imnew.save("button_top_record.png", "PNG")
