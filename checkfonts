@@ -1,0 +1,92 @@
+#!/bin/sh
+
+FONTDIR="../../fonts/"
+if [ ! -d "$FONTDIR" ]; then
+	echo "Not in skin directory. Exit."
+	exit 1
+fi
+
+splitfont() {
+	OLDIFS=$IFS
+	IFS='
+'
+	for f in $1; do
+		echo $(echo "$f" | cut -d ":" -f 1)
+		break
+	done
+	IFS=$OLDIFS
+}
+
+printf "Checking for \"Ubuntu Bold\"..."
+font="$(fc-list :fullname='Ubuntu Bold' file)"
+font=$(splitfont "$font")
+if [ -z "$font" ]; then
+	printf " fail.\n"
+	printf "  \"Ubuntu Bold\" not found\n"
+	printf "  Ubuntu User run \"apt-get install ttf-ubuntu-font-family\"\n"
+	printf "  on other Systems go to \"http://font.ubuntu.com/\"\n"
+	exit 1
+else
+	printf " pass.\n"
+	printf "  found at \"$font\"\n"
+fi
+if [ ! -e "${FONTDIR}Ubuntu-B.ttf" ]; then
+	printf "  linking \"${FONTDIR}Ubuntu-B.ttf\" to \"$font\"\n"
+	ln -s "$font" "${FONTDIR}Ubuntu-B.ttf"
+fi
+
+printf "Checking for \"Courier New Fett\"..."
+font="$(fc-list :fullname='Courier New Fett' file)"
+font=$(splitfont "$font")
+if [ -z "$font" ]; then
+	printf " fail.\n"
+	printf "  \"Courier New Fett\" not found\n"
+	printf "  Debian/Ubuntu User run \"apt-get install ttf-mscorefonts-installer\"\n"
+	printf "  on other Systems go to \"http://corefonts.sourceforge.net/\"\n"
+	exit 1
+else
+	printf " pass.\n"
+	printf "  found at \"$font\"\n"
+fi
+if [ ! -e "${FONTDIR}courbd.ttf" ]; then
+	printf "  linking \"${FONTDIR}courbd.ttf\" to \"$font\"\n"
+	ln -s "$font" "${FONTDIR}courbd.ttf"
+fi
+
+printf "Checking for \"VDRSymbols Sans\"..."
+font="$(fc-list :fullname='VDRSymbols Sans' file)"
+font=$(splitfont "$font")
+if [ -z "$font" ]; then
+	printf " fail.\n"
+	printf "  \"VDRSymbols Sans\" not found\n"
+	printf "  Debian/Ubuntu Users using a VDR Repository usualliy run \"apt-get install ttf-vdrsymbols\"\n"
+	printf "  on other Systems go to \"http://andreas.vdr-developer.org/fonts/download.html\"\n"
+	exit 1
+else
+	printf " pass.\n"
+	printf "  found at \"$font\"\n"
+fi
+if [ ! -e "${FONTDIR}VDRSymbolsSans.ttf" ]; then
+	printf "  linking \"${FONTDIR}VDRSymbolsSans.ttf\" to \"$font\"\n"
+	ln -s "$font" "${FONTDIR}VDRSymbolsSans.ttf"
+fi
+
+printf "Checking for \"VDRSymbols Sans Bold\"..."
+font="$(fc-list :fullname='VDRSymbols Sans Bold' file)"
+font=$(splitfont "$font")
+if [ -z "$font" ]; then
+	printf " fail.\n"
+	printf "  \"VDRSymbols Sans Bold\" not found\n"
+	printf "  Debian/Ubuntu Users using a VDR Repository usualliy run \"apt-get install ttf-vdrsymbols\"\n"
+	printf "  on other Systems go to \"http://andreas.vdr-developer.org/fonts/download.html\"\n"
+	exit 1
+else
+	printf " pass.\n"
+	printf "  found at \"$font\"\n"
+fi
+if [ ! -e "${FONTDIR}VDRSymbolsSans-Bold.ttf" ]; then
+	printf "  linking \"${FONTDIR}VDRSymbolsSans-Bold.ttf\" to \"$font\"\n"
+	ln -s "$font" "${FONTDIR}VDRSymbolsSans-Bold.ttf"
+fi
+
+exit 0
