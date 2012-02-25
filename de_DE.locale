@@ -1,0 +1,39 @@
+<!--
+  This ist an XML snipped. The syntax must follow the XML rules.
+
+  Attention: Only change the "value"/"path" Entries.
+-->
+
+
+
+  <variable evaluate="once" id="MessageAttention"
+    value="'Die ben&#x00F6;tigten Schriftarten wurden nicht gefunden. Dardurch kann die Darstellung fehlerhaft sein. Bitte die ben&#x00F6;tigten Schriftarten installieren!'"
+  />
+
+  <variable evaluate="once" id="MessageDisplayError"
+    value="'Von diesem Skin werden nur Farbdisplays mit 320x240 Bildpunkten unterst&#x00E4;tzt!'"
+  />
+
+  <variable evaluate="once" id="MessageNoInfo"
+    value="'keine Info!'"
+  />
+
+  <variable evaluate="once" id="MessageAlertNoTitle"
+    value="'<kein Titel>'"
+  />
+
+  <variable evaluate="once" id="MessageAlertNoOrgin"
+    value="'<kein Absender>'"
+  />
+
+  <variable evaluate="once" id="MessageAlertFrom"
+    value="'von'"
+  />
+
+  <variable evaluate="once" id="MessageAlertNoText"
+    value="'<kein Text>'"
+  />
+
+  <variable evaluate="once" id="MessageMenuAudio"
+    value="'Audio'"
+  />

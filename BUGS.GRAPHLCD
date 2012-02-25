@@ -1,0 +1,23 @@
+Bugs:
+
+- Texte werden fälschlicherweise als Funktion geparst
+  --
+  ERROR: Unmatched ',' in expression (Passende Schriftarten nicht gefunden, die Darstellung kann fehlerhaft sein. Bitte die korrekten Schriftarten installieren!)
+  --
+  ERROR: Unmatched ',' in expression (N24 Nachrichten - Nachrichten, Wirtschaft und BÃ¶rse, Sport und Wetter)
+  --
+
+- Entities in variable werden nicht ausgewertet.
+
+- {VolumeCurrent} liefert manchmal seltsame Werte (teilweise negativ). Ein "Mute" nach dem Start behebt das Problem.
+
+- 8-Bit PNG erzeugen Pixelfehler in der Darstellung.
+
+- Scrollen in Multiline Text funktioniert nicht, {MenuTextScroll} ist immer "0"
+
+
+Wünsche:
+
+- {AudioTrackCount} für die Anzahl der Audiotracks
+
+- <display id="subtitle"> analog zu audio

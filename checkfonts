@@ -1,6 +1,10 @@
 #!/bin/sh
 
+set -u
+set -e
+
 FONTDIR="../../fonts/"
+#FONTDIR="/dev/shm/.vdr/vdr/config/plugins/graphlcd/fonts/"
 if [ ! -d "$FONTDIR" ]; then
 	echo "Not in skin directory. Exit."
 	exit 1
