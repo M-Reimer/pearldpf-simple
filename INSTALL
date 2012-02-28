@@ -1,7 +1,12 @@
-Zum VDR Nutzer wechseln (su vdr).
+Ins Pluginkonfigdir wechseln (in dieser Beschreibung nehme ich
+/etc/vdr/plugins/ an), dort per cd graphlcd/skins ins Skinverzeichnis
+wechseln und per
+  git clone http://dl.dropbox.com/s/f4gc4243t4pgv98/pearldpf-simple.git
+den Skin auschecken.
 
-Ins Pluginkonfigdir wechseln, dort per cd graphlcd/skins ins Skinverzeichnis wechseln und
-git clone http://dl.dropbox.com/s/f4gc4243t4pgv98/pearldpf-simple.git
+Danach die Rechte der Dateien so setzen das der VDR darauf Zugriff hat. In diesem
+Beispiel läuft der VDR unter dem User und der Gruppe "vdr" und "sudo" ist norwendig."
+  sudo chown -R vdr:vdr /etc/vdr/plugins/graphlcd/skins/pearldpf-simple
 
 Später immer mal wieder per git pull (im pearldpf-simple Verzeichnis) aktualisieren.
 
