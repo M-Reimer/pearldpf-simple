@@ -6,24 +6,27 @@ git clone http://dl.dropbox.com/s/f4gc4243t4pgv98/pearldpf-simple.git
 Später immer mal wieder per git pull (im pearldpf-simple Verzeichnis) aktualisieren.
 
 Die Schriften installieren:
+ - Ubuntu Bold
+ - Ubuntu Mono Bold
+ - Ubuntu Condensed
+
   Ubuntu:
     apt-get install ttf-ubuntu-font-family
-    ln -s /usr/share/fonts/truetype/ubuntu-font-family/Ubuntu-B.ttf <pluginconfdir>/graphlcd/fonts/Ubuntu-B.ttf
   andere:
     Download http://font.ubuntu.com/
     Die Fonts unter /usr/local/share/fonts/truetype/ubuntu-font-family/ speichern
-    ln -s /usr/local/share/fonts/truetype/ubuntu-font-family/Ubuntu-B.ttf <pluginconfdir>/graphlcd/fonts/Ubuntu-B.ttf
 
-  VDRSymbolsSans-Bold.ttf installieren
-  VDRSymbolsSans.ttf installieren
-    ln -s /usr/local/share/fonts/<patch to font>/VDRSymbolsSans-Bold.ttf <pluginconfdir>/graphlcd/fonts/VDRSymbolsSans-Bold.ttf
-    ln -s /usr/local/share/fonts/<patch to font>/VDRSymbolsSans.ttf <pluginconfdir>/graphlcd/fonts/VDRSymbolsSans.ttf
+ - VDRSymbols Sans Bold
+ - VDRSymbols Sans
 
-  Courier New Bold (courbd.ttf) installieren
-    Debian/Ubuntu: "apt-get install ttf-mscorefonts-installer"
-    ln -s /usr/local/share/fonts/<patch to font>/msttcorefonts/courbd.ttf <pluginconfdir>/graphlcd/fonts/courbd.ttf
+  Ubuntu/Debian bei der Nutzung einer VDR Distribution
+    apt-get install ttf-vdrsymbols
+  andere:
+    Download http://andreas.vdr-developer.org/fonts/download.html
+    Die Fonts unter /usr/local/share/fonts/truetype/ttf-vdrsymbols/ speichern
+
+./checkfonts ausführen
 
 
 Die Logos installieren:
-  Die Logos (260x146) vom yaVDR best friend runterladen und im skinverzeichnis einen Link darauf erstellen
-  ln -s /usr/share/<Pfad zu den Logos> <pluginconfdir>/graphlcd/skins/pearldpf-simple/channellogos
+  In settings.conf kann der Pfad zu den gewünschten Logos gesetzt werden.
