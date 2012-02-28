@@ -45,7 +45,7 @@ font=$(splitfont "$font")
 if [ -z "$font" ]; then
 	printf " fail.\n"
 	printf "  \"Ubuntu Mono Bold\" not found\n"
-	printf "  Ubuntu User run \"apt-get install ttf-ubuntu-font-family\"\n"
+	printf "  Ubuntu (>= oneiric) User run \"apt-get install ttf-ubuntu-font-family\"\n"
 	printf "  on other Systems go to \"http://font.ubuntu.com/\"\n"
 	exit 1
 else
@@ -62,7 +62,7 @@ font="$(fc-list :fullname='Ubuntu Condensed' file)"
 font=$(splitfont "$font")
 if [ -z "$font" ]; then
 	printf " fail.\n"
-	printf "  \"Ubuntu Condensed\" not found\n"
+	printf "  \"Ubuntu (>= oneiric) Condensed\" not found\n"
 	printf "  Ubuntu User run \"apt-get install ttf-ubuntu-font-family\"\n"
 	printf "  on other Systems go to \"http://font.ubuntu.com/\"\n"
 	exit 1

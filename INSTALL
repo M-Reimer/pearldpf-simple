@@ -15,7 +15,7 @@ Die Schriften installieren:
  - Ubuntu Mono Bold
  - Ubuntu Condensed
 
-  Ubuntu:
+  Ubuntu (>= oneiric):
     apt-get install ttf-ubuntu-font-family
   andere:
     Download http://font.ubuntu.com/
