@@ -4,8 +4,6 @@
 
 <include path="'{SkinPath}/settings.conf'"/>
 
-<variable evaluate="once" id="Fontcheck" value="1"/>
-
 <font id="FontDisplayError" url="ft2:Vera.ttf:12"/>
 <font id="FontBar" url="ft2:Ubuntu-B.ttf:36"/>
 <font id="FontChannelNumber" url="ft2:Ubuntu-B.ttf:78"/>
@@ -115,8 +113,6 @@
 				</text>
 			</block>
 		</block>
-
-		<include path="'{SkinPath}/fonterror.inc'"/>
 
 		<include path="'{SkinPath}/displayerror.inc'"/>
 
