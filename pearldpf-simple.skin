@@ -11,7 +11,9 @@
 <font id="FontChannelNumber" url="ft2:Ubuntu-B.ttf:78"/>
 <font id="FontSettings" url="ft2:Ubuntu-B.ttf:58"/>
 <font id="FontChannelName" url="ft2:Ubuntu-B.ttf:40"/>
-<font id="FontClock" url="ft2:courbd.ttf:80"/>
+<font id="FontClock" url="ft2:UbuntuMono-B.ttf:94"/>
+<font id="FontClockDay" url="ft2:Ubuntu-C.ttf:24"/>
+<font id="FontClockDate" url="ft2:Ubuntu-C.ttf:24"/>
 <font id="FontMessage" url="ft2:VDRSymbolsSans-Bold.ttf:24"/>
 <font id="FontMessageTitle" url="ft2:VDRSymbolsSans-Bold.ttf:18"/>
 <font id="FontMessageSubTitle" url="ft2:VDRSymbolsSans.ttf:16"/>

@@ -109,11 +109,25 @@
 	 color="#ColorMessageBlank" filled="yes"
 	/>
 	<text
-	 x="40" width="240" y="20" height="126"
+	 x="40" width="240" y="20" height="96"
 	 color="#ColorClockForeground"
 	 valign="middle" align="center" font="FontClock"
 	>
 		{DateTime:%H}:{DateTime:%M}
+	</text>
+	<text
+	 x="40" width="240" y="116" height="30"
+	 color="#ColorClockForeground"
+	 valign="middle" align="left" font="FontClockDay"
+	>
+		{DateTime:%A}
+	</text>
+	<text
+	 x="40" width="240" y="116" height="30"
+	 color="#ColorClockForeground"
+	 valign="middle" align="right" font="FontClockDate"
+	>
+		{DateTime:%d}.{DateTime:%m}.{DateTime:%Y}
 	</text>
 
 </block>
