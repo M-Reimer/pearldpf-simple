@@ -5,6 +5,7 @@ ToDo:
 - femon Anzeige wenn die Empfangswerte unter einem bestimmten Level fallen.
 - Anzeige der Lautstärkeänderung schöner machen. Evlt. ein durchsichtiger Gradient der von hinten entsprechend der Laufstärke beleuchtet wird.
 - Verminderung unötiger "file" Aufrufe.
+- Volle Menuhöhe wenn keine Farbbuttons
 
 
 Erledigt:

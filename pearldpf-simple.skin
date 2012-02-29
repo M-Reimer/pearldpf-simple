@@ -4,7 +4,7 @@
 
 <include path="'{SkinPath}/settings.conf'"/>
 
-<font id="FontDisplayError" url="ft2:Vera.ttf:12"/>
+<font id="FontDisplayError" url="ft2:VDRSymbolsSans.ttf:12"/>
 <font id="FontBar" url="ft2:Ubuntu-B.ttf:36"/>
 <font id="FontChannelNumber" url="ft2:Ubuntu-B.ttf:78"/>
 <font id="FontSettings" url="ft2:Ubuntu-B.ttf:58"/>

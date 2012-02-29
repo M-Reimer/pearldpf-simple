@@ -1,5 +1,5 @@
 Ins Pluginkonfigdir wechseln (in dieser Beschreibung nehme ich
-/etc/vdr/plugins/ an), dort per cd graphlcd/skins ins Skinverzeichnis
+/etc/vdr/plugins/graphlcd/ *1) an), dort per cd skins ins Skinverzeichnis
 wechseln und per
   git clone http://dl.dropbox.com/s/f4gc4243t4pgv98/pearldpf-simple.git
 den Skin auschecken.
@@ -35,3 +35,8 @@ Die Schriften installieren:
 
 Die Logos installieren:
   In settings.conf kann der Pfad zu den gewünschten Logos gesetzt werden.
+
+---------
+*1) Bei vielen Debian basierenden Distributionen ist der Pfad
+      /usr/share/vdr-plugin-graphlcd/
+    zu nutzen.
