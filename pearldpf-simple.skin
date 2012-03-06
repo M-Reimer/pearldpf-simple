@@ -185,6 +185,7 @@
 			{Message}
 		</text>
 
+		<include path="'{SkinPath}/inc/logomask.inc'"/>
 		<include path="'{SkinPath}/inc/displayerror.inc'"/>
 
 	</display>
