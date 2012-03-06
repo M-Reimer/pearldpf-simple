@@ -317,7 +317,7 @@
 			<text
 			 x1="3" x2="316" y1="31" y2="218"
 			 color="#ColorMenuText"
-			 multiline="yes" font="FontMenuText"
+			 multiline="yes" font="FontMenuText" mlrelscroll="{MenuTextScroll}"
 			>
 				{MenuText}
 			</text>
