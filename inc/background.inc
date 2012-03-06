@@ -1,25 +1,45 @@
 
 <image
  x1="0" y="165"
- path="#ProgessBarBackground"
- condition="not({IsRecording})"
+ path="#ProgessBarBackground#ColorSchemeNormal#ProgessBarBackgroundExt"
+ condition="and(not({IsRecording}),not({VolumeIsMute}))"
 />
-<rectangle
- x="0" y="195" width="320" height="45"
- color="#ColorBarBackgroundNormal" filled="yes"
- condition="not({IsRecording})"
+<image
+ x1="0" y="165"
+ path="#ProgessBarBackground#ColorSchemeNormalMute#ProgessBarBackgroundExt"
+ condition="and(not({IsRecording}),{VolumeIsMute})"
+/>
+<image
+ x1="0" y="165"
+ path="#ProgessBarBackground#ColorSchemeRecord#ProgessBarBackgroundExt"
+ condition="and({IsRecording},not({VolumeIsMute}))"
+/>
+<image
+ x1="0" y="165"
+ path="#ProgessBarBackground#ColorSchemeRecordMute#ProgessBarBackgroundExt"
+ condition="and({IsRecording},{VolumeIsMute})"
 />
 
 <image
- x1="0" y="165"
- path="#ProgessBarRecBackground"
- condition="{IsRecording}"
+ x="0" y="195"
+ path="#LowerBarBackground#ColorSchemeNormal#LowerBarBackgroundExt"
+ condition="and(not({IsRecording}),not({VolumeIsMute}))"
 />
-<rectangle x="0" y="195" width="320" height="45"
- color="#ColorBarBackgroundRecord" filled="yes"
- condition="{IsRecording}"
+<image
+ x="0" y="195"
+ path="#LowerBarBackground#ColorSchemeNormalMute#LowerBarBackgroundExt"
+ condition="and(not({IsRecording}),{VolumeIsMute})"
 />
-
+<image
+ x="0" y="195"
+ path="#LowerBarBackground#ColorSchemeRecord#LowerBarBackgroundExt"
+ condition="and({IsRecording},not({VolumeIsMute}))"
+/>
+<image
+ x="0" y="195"
+ path="#LowerBarBackground#ColorSchemeRecordMute#LowerBarBackgroundExt"
+ condition="and({IsRecording},{VolumeIsMute})"
+/>
 
 <block condition="{ExtDataIsAvailable:ALERT}">
 
@@ -132,13 +152,4 @@
 
 </block>
 
-<image
- x="0" y="0"
- path="#LogoBackground"
- condition="not({VolumeIsMute})"
-/>
-<image
- x="0" y="0"
- path="#LogoBackgroundMute"
- condition="{VolumeIsMute}"
-/>
+<include path="'{SkinPath}/inc/logomask.inc'"/>

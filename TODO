@@ -6,6 +6,12 @@ ToDo:
 - Anzeige der Lautstärkeänderung schöner machen. Evlt. ein durchsichtiger Gradient der von hinten entsprechend der Laufstärke beleuchtet wird.
 - Verminderung unötiger "file" Aufrufe.
 - Volle Menuhöhe wenn keine Farbbuttons
+- Nachrichten bei offenen Menu sehen komisch aus
+- Konfig Option, EPG Scrollen oder nicht Scrollend wechseln (5-10 Sekunden).
+- INSTALL: plugin.graphlcd.conf beschreiben
+- Logo/Kanalname oder nur Kanalname per Setup.
+- Logos anstelle des TV Icons.
+- Fontcheck nach superelchis Idee.
 
 
 Erledigt:

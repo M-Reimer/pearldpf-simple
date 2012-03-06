@@ -4,7 +4,7 @@
 
 <include path="'{SkinPath}/settings.conf'"/>
 
-<font id="FontDisplayError" url="ft2:VDRSymbolsSans.ttf:12"/>
+<font id="FontDisplayError" url="ft2:VDRSymbolsSans.ttf:10"/>
 <font id="FontBar" url="ft2:Ubuntu-B.ttf:36"/>
 <font id="FontChannelNumber" url="ft2:Ubuntu-B.ttf:78"/>
 <font id="FontSettings" url="ft2:Ubuntu-B.ttf:58"/>
@@ -21,44 +21,43 @@
 <font id="FontMenuText" url="ft2:VDRSymbolsSans.ttf:13"/>
 <font id="FontMenuButton" url="ft2:VDRSymbolsSans-Bold.ttf:11"/>
 
-<variable evaluate="once" id="LogoBackground" value="'{SkinPath}/images/logoback_normal.png'" condition="eq(#Style.Gradient,1)"/>
-<variable evaluate="once" id="LogoBackground" value="'{SkinPath}/images/logoback_normal_ng.png'" condition="eq(#Style.Gradient,0)"/>
-<variable evaluate="once" id="LogoBackgroundMute" value="'{SkinPath}/images/logoback_mute.png'" condition="eq(#Style.Gradient,1)"/>
-<variable evaluate="once" id="LogoBackgroundMute" value="'{SkinPath}/images/logoback_mute_ng.png'" condition="eq(#Style.Gradient,0)"/>
-<variable evaluate="once" id="ProgessBarBackground" value="'{SkinPath}/images/bar_normal_back.png'"/>
-<variable evaluate="once" id="ProgessBarForeground" value="'{SkinPath}/images/bar_normal_front.png'"/>
-<variable evaluate="once" id="ProgessBarRecBackground" value="'{SkinPath}/images/bar_record_back.png'"/>
-<variable evaluate="once" id="ProgessBarRecForeground" value="'{SkinPath}/images/bar_record_front.png'"/>
-<variable evaluate="once" id="ButtonRed" value="'{SkinPath}/images/button_red.png'"/>
-<variable evaluate="once" id="ButtonGreen" value="'{SkinPath}/images/button_green.png'"/>
-<variable evaluate="once" id="ButtonYellow" value="'{SkinPath}/images/button_yellow.png'"/>
-<variable evaluate="once" id="ButtonBlue" value="'{SkinPath}/images/button_blue.png'"/>
-<variable evaluate="once" id="ButtonTopNormal" value="'{SkinPath}/images/button_top_normal.png'"/>
-<variable evaluate="once" id="ButtonTopRecord" value="'{SkinPath}/images/button_top_record.png'"/>
-<variable evaluate="once" id="ButtonBarNormal" value="'{SkinPath}/images/button_bar_normal.png'"/>
-<variable evaluate="once" id="ButtonBarRecord" value="'{SkinPath}/images/button_bar_record.png'"/>
+<variable evaluate="once" id="LogoBackground" value="'{SkinPath}/styles/logoarea-frontmask_'"/>
+<variable evaluate="once" id="LogoBackgroundExt" value="'.png'"/>
+<variable evaluate="once" id="ProgessBarBackground" value="'{SkinPath}/styles/progressbar-back_'"/>
+<variable evaluate="once" id="ProgessBarBackgroundExt" value="'.png'"/>
+<variable evaluate="once" id="ProgessBarForeground" value="'{SkinPath}/styles/progressbar-front_'"/>
+<variable evaluate="once" id="ProgessBarForegroundExt" value="'.png'"/>
+<variable evaluate="once" id="LowerBarBackground" value="'{SkinPath}/styles/lowerbar-back_'"/>
+<variable evaluate="once" id="LowerBarBackgroundExt" value="'.png'"/>
+<variable evaluate="once" id="ButtonRed" value="'{SkinPath}/styles/menu-back-button-red.png'"/>
+<variable evaluate="once" id="ButtonGreen" value="'{SkinPath}/styles/menu-back-button-green.png'"/>
+<variable evaluate="once" id="ButtonYellow" value="'{SkinPath}/styles/menu-back-button-yellow.png'"/>
+<variable evaluate="once" id="ButtonBlue" value="'{SkinPath}/styles/menu-back-button-blue.png'"/>
+<variable evaluate="once" id="ButtonTop" value="'{SkinPath}/styles/menu-back-caption_'"/>
+<variable evaluate="once" id="ButtonTopExt" value="'.png'"/>
+<variable evaluate="once" id="ButtonBar" value="'{SkinPath}/styles/menu-back-item_'"/>
+<variable evaluate="once" id="ButtonBarExt" value="'.png'"/>
 
-<variable evaluate="once" id="VolumeBar" value="'{SkinPath}/images/audio_volume.png'"/>
-<variable evaluate="once" id="VolumeBarMute" value="'{SkinPath}/images/audio_volume_muted.png'"/>
+<variable evaluate="once" id="VolumeBar" value="'{SkinPath}/icons/audio_volume.png'"/>
+<variable evaluate="once" id="VolumeBarMute" value="'{SkinPath}/icons/audio_volume_muted.png'"/>
 
-<variable evaluate="once" id="IconTV" value="'{SkinPath}/images/MetroStation-tv.png'"/>
-<variable evaluate="once" id="IconRadio" value="'{SkinPath}/images/MetroStation-radio.png'"/>
+<variable evaluate="once" id="IconTV" value="'{SkinPath}/icons/MetroStation-tv.png'"/>
+<variable evaluate="once" id="IconRadio" value="'{SkinPath}/icons/MetroStation-radio.png'"/>
 
-<variable evaluate="once" id="AudioStereo" value="'{SkinPath}/images/Enigma-Skin-audio_stereo.png'"/>
-<variable evaluate="once" id="AudioLeft" value="'{SkinPath}/images/Enigma-Skin-audio_left.png'"/>
-<variable evaluate="once" id="AudioRight" value="'{SkinPath}/images/Enigma-Skin-audio_right.png'"/>
+<variable evaluate="once" id="AudioStereo" value="'{SkinPath}/icons/Enigma-Skin-audio_stereo.png'"/>
+<variable evaluate="once" id="AudioLeft" value="'{SkinPath}/icons/Enigma-Skin-audio_left.png'"/>
+<variable evaluate="once" id="AudioRight" value="'{SkinPath}/icons/Enigma-Skin-audio_right.png'"/>
 
-<variable evaluate="once" id="MessageError" value="'{SkinPath}/images/Oxygen-dialog-error.png'"/>
-<variable evaluate="once" id="MessageInformation" value="'{SkinPath}/images/Oxygen-dialog-information.png'"/>
-<variable evaluate="once" id="MessageWarning" value="'{SkinPath}/images/Oxygen-dialog-warning.png'"/>
-<variable evaluate="once" id="MessageHelp" value="'{SkinPath}/images/Oxygen-system-help.png'"/>
+<variable evaluate="once" id="MessageError" value="'{SkinPath}/icons/Oxygen-dialog-error.png'"/>
+<variable evaluate="once" id="MessageInformation" value="'{SkinPath}/icons/Oxygen-dialog-information.png'"/>
+<variable evaluate="once" id="MessageWarning" value="'{SkinPath}/icons/Oxygen-dialog-warning.png'"/>
+<variable evaluate="once" id="MessageHelp" value="'{SkinPath}/icons/Oxygen-system-help.png'"/>
 
-<include path="'{SkinPath}/colors.inc'"/>
+<include path="'{SkinPath}/inc/colors.inc'"/>
 
 
 	<display id="normal">
 
-		<variable evaluate="tick" id="Progress" evaluate="always" default="0" value="div(mul({PresentProgress},320),{PresentDuration})" condition="gt({PresentProgress},0)"/>
 		<variable evaluate="tick" id="RDSInfo" value="{ServiceItem:radio,rds_info}" condition="{ServiceIsAvailable:radio}" default="0"/>
 	
 		<block condition="and(not({ExtDataIsAvailable:ALERT}),or(ge({DateTime:%S},30),not({SettingShowTimebar})))">
@@ -79,10 +78,8 @@
 			</block>
 		</block>
 
-		<include path="'{SkinPath}/background.inc'"/>
-
-		<image x="0" width="#Progress" y="165" height="30" scale="fill" path="#ProgessBarForeground" condition="and(ne(FontTextWidth('FontBar',{PresentTitle}),0),not({IsRecording}))"/>
-		<image x="0" width="#Progress" y="165" height="30" scale="fill" path="#ProgessBarRecForeground" condition="and(ne(FontTextWidth('FontBar',{PresentTitle}),0),{IsRecording})"/>
+		<include path="'{SkinPath}/inc/background.inc'"/>
+		<include path="'{SkinPath}/inc/progresslive.inc'"/>
 
 		<block condition="ne(#RDSInfo,0)">
 			<!-- Titel -->
@@ -114,7 +111,30 @@
 			</block>
 		</block>
 
-		<include path="'{SkinPath}/displayerror.inc'"/>
+		<include path="'{SkinPath}/inc/displayerror.inc'"/>
+
+	</display>
+
+
+	<display id="replay">
+
+		<rectangle
+		 x="30" width="260" y="10" height="146"
+		 color="#ColorMessageBlank" filled="yes"
+		/>
+
+		<include path="'{SkinPath}/inc/background.inc'"/>
+		<include path="'{SkinPath}/inc/progressreplay.inc'"/>
+
+		<text
+		 x1="5" x2="314" y="195" height="45"
+		 color="#ColorBarForeground"
+		 valign="middle" align="center" scrollmode="always" font="FontBar"
+		>
+			{ReplayTitle}
+		</text>
+
+		<include path="'{SkinPath}/inc/displayerror.inc'"/>
 
 	</display>
 
@@ -125,111 +145,242 @@
 		<variable id="Volume2" evaluate="tick" value="div(mul({VolumeCurrent},146),{VolumeTotal})"/>
 		<variable id="Start1" evaluate="tick" value="add(30,div(sub(260,#Volume1),2))"/>
 		<variable id="Start2" evaluate="tick" value="add(10,div(sub(146,#Volume2),2))"/>
-		<rectangle x="30" width="260" y="10" height="146" color="#ColorMessageBlank" filled="yes"/>
-		<image x="#Start1" y="#Start2" width="#Volume1" height="#Volume2" scale="auto" path="#VolumeBar" condition="not({VolumeIsMute})"/>
-		<image x="30" y="10" width="260" height="146" scale="auto" path="#VolumeBarMute" condition="{VolumeIsMute}"/>
-		<image x="0" y="0" path="#LogoBackground" condition="not({VolumeIsMute})"/>
-		<image x="0" y="0" path="#LogoBackgroundMute" condition="{VolumeIsMute}"/>
 
-		<include path="'{SkinPath}/displayerror.inc'"/>
+		<rectangle
+		 x="30" width="260" y="10" height="146"
+		 color="#ColorMessageBlank" filled="yes"
+		/>
 
-	</display>
+		<!-- Workaround for an graphlcd bug -->
+		<block condition="and(ge({VolumeCurrent},0),le({VolumeCurrent},255))">
+			<image
+			 x="#Start1" y="#Start2" width="#Volume1" height="#Volume2" scale="auto"
+			 path="#VolumeBar"
+			 condition="not({VolumeIsMute})"
+			/>
+		</block>
+		<image
+		 x="30" y="10" width="260" height="146" scale="auto"
+		 path="#VolumeBarMute"
+		 condition="{VolumeIsMute}"
+		/>
 
-
-	<display id="replay">
-
-		<variable id="ReplayProgress" evaluate="tick" default="0" value="div(mul({ReplayPositionIndex},320),{ReplayDurationIndex})" condition="gt({ReplayPositionIndex},0)"/>
-
-		<rectangle x="30" width="260" y="10" height="146" color="#ColorMessageBlank" filled="yes"/>
-
-		<include path="'{SkinPath}/background.inc'"/>
-
-		<image x="0" width="#ReplayProgress" y="165" height="30" scale="fill" path="#ProgessBarForeground" condition="not({IsRecording})"/>
-		<image x="0" width="#ReplayProgress" y="165" height="30" scale="fill" path="#ProgessBarRecForeground" condition="{IsRecording}"/>
-	
-		<text x1="5" x2="314" y="195" height="45" color="#ColorBarForeground" valign="middle" align="center" font="FontBar" scrollmode="always">
-			{ReplayTitle}
-		</text>
-
-		<include path="'{SkinPath}/displayerror.inc'"/>
+		<include path="'{SkinPath}/inc/logomask.inc'"/>
+		<include path="'{SkinPath}/inc/displayerror.inc'"/>
 
 	</display>
 
 
 	<display id="message">
-		<rectangle x="30" width="260" y="10" height="146" color="#ColorMessageInfo" filled="yes"/>
-		<image x="0" y="0" path="#LogoBackground" condition="not({VolumeIsMute})"/>
-		<image x="0" y="0" path="#LogoBackgroundMute" condition="{VolumeIsMute}"/>
 
-		<text x="40" width="240" y="20" height="126" color="#ColorMessageForeground" valign="middle" align="left" multiline="yes" font="FontMessage">
+		<rectangle
+		 x="30" width="260" y="10" height="146"
+		 color="#ColorMessageInfo" filled="yes"
+		/>
+		<text
+		 x="40" width="240" y="20" height="126"
+		 color="#ColorMessageForeground"
+		 valign="middle" align="left" multiline="yes" font="FontMessage"
+		>
 			{Message}
 		</text>
 
-	<include path="'{SkinPath}/displayerror.inc'"/>
+		<include path="'{SkinPath}/inc/displayerror.inc'"/>
 
 	</display>
 
 
 	<display id="audio">
-		<rectangle x="30" width="260" y="10" height="146" color="#ColorMessageBlank" filled="yes"/>
-		<image x="0" y="0" path="#LogoBackground" condition="not({VolumeIsMute})"/>
-		<image x="0" y="0" path="#LogoBackgroundMute" condition="{VolumeIsMute}"/>
 
-		<image x="40" y="20" width="68" height="68" scale="auto" path="#AudioStereo" condition="eq({AudioChannel},0)"/>
-		<image x="40" y="20" width="68" height="68" scale="auto" path="#AudioLeft" condition="eq({AudioChannel},1)"/>
-		<image x="40" y="20" width="68" height="68" scale="auto" path="#AudioRight" condition="eq({AudioChannel},2)"/>
-		<text x="108" width="172" y="13" height="80" color="#ColorMenuAudioTitle" valign="middle" align="right" font="FontSettings">
+		<rectangle
+		 x="30" width="260" y="10" height="146"
+		 color="#ColorMessageBlank" filled="yes"
+		/>
+
+		<image
+		 x="40" y="20" width="68" height="68" scale="auto"
+		 path="#AudioStereo"
+		 condition="eq({AudioChannel},0)"
+		/>
+		<image
+		 x="40" y="20" width="68" height="68" scale="auto"
+		 path="#AudioLeft"
+		 condition="eq({AudioChannel},1)"
+		/>
+		<image
+		 x="40" y="20" width="68" height="68" scale="auto"
+		 path="#AudioRight"
+		 condition="eq({AudioChannel},2)"
+		/>
+
+		<text
+		 x="108" width="172" y="13" height="80"
+		 color="#ColorMenuAudioTitle"
+		 valign="middle" align="right" font="FontSettings"
+		>
 			#MessageMenuAudio
 		</text>
-		<text x="40" width="240" y="93" height="58" color="#ColorMenuAudioItem" valign="middle" align="center" scrollmode="always"
-		 font="FontChannelName">
+
+		<text
+		 x="40" width="240" y="93" height="58"
+		 color="#ColorMenuAudioItem"
+		 valign="middle" align="center" scrollmode="always" font="FontChannelName"
+		>
 			{AudioTrackCurrent}
 		</text>
 
-	<include path="'{SkinPath}/displayerror.inc'"/>
+		<include path="'{SkinPath}/inc/logomask.inc'"/>
+		<include path="'{SkinPath}/inc/displayerror.inc'"/>
 
 	</display>
 
 
 	<display id="menu">
-		<rectangle x1="0" x2="319" y1="0" y2="239" color="#ColorMenuBackground" filled="yes"/>
+		<rectangle
+		 x1="0" x2="319" y1="0" y2="239"
+		 color="#ColorMenuBackground" filled="yes"
+		/>
 
-		<image x="0" y="0" path="#ButtonTopNormal" condition="not({IsRecording})"/>
-		<image x="0" y="0" path="#ButtonTopRecord" condition="{IsRecording}"/>
-		<text x1="5" y="5" height="25" width="320" color="#ColorMenuTitle" valign="middle" font="FontMenuTitle">{MenuTitle}</text>
+		<image
+		 x1="0" y="0"
+		 path="#ButtonTop#ColorSchemeNormal#ButtonTopExt"
+		 condition="and(not({IsRecording}),not({VolumeIsMute}))"
+		/>
+		<image
+		 x1="0" y="0"
+		 path="#ButtonTop#ColorSchemeNormalMute#ButtonTopExt"
+		 condition="and(not({IsRecording}),{VolumeIsMute})"
+		/>
+		<image
+		 x1="0" y="0"
+		 path="#ButtonTop#ColorSchemeRecord#ButtonTopExt"
+		 condition="and({IsRecording},not({VolumeIsMute}))"
+		/>
+		<image
+		 x1="0" y="0"
+		 path="#ButtonTop#ColorSchemeRecordMute#ButtonTopExt"
+		 condition="and({IsRecording},{VolumeIsMute})"
+		/>
 
-		<list x1="0" x2="319" y1="31" y2="218">
-			<item height="17" scrollmode="always"/>
-			<image x="0" y="0" path="#ButtonBarNormal" condition="and({MenuCurrent},not({IsRecording}))"/>
-			<image x="0" y="0" path="#ButtonBarRecord" condition="and({MenuCurrent},{IsRecording})"/>
-			<text x1="3" x2="316" y1="0" scrollmode="always" height="17" valign="middle" color="#ColorMenuItemCurrent" font="FontMenuItem" scrollmode="always">{MenuCurrent}</text>
-			<text x1="3" x2="316" y1="0" scrollmode="always" height="17" valign="middle" color="#ColorMenuItem" font="FontMenuItem">{MenuItem}</text>
+		<text
+		 x1="5" y="5" height="25" width="320"
+		 color="#ColorMenuTitle"
+		 valign="middle" font="FontMenuTitle"
+		>
+			{MenuTitle}
+		</text>
+
+		<list
+		 x1="0" x2="319" y1="31" y2="218"
+		>
+			<item
+			 height="17"
+			/>
+			<image
+			 x1="0" y="0"
+			 path="#ButtonBar#ColorSchemeNormal#ButtonBarExt"
+			 condition="and({MenuCurrent},and(not({IsRecording}),not({VolumeIsMute})))"
+			/>
+			<image
+			 x1="0" y="0"
+			 path="#ButtonBar#ColorSchemeNormalMute#ButtonBarExt"
+			 condition="and({MenuCurrent},and(not({IsRecording}),{VolumeIsMute}))"
+			/>
+			<image
+			 x1="0" y="0"
+			 path="#ButtonBar#ColorSchemeRecord#ButtonBarExt"
+			 condition="and({MenuCurrent},and({IsRecording},not({VolumeIsMute})))"
+			/>
+			<image
+			 x1="0" y="0"
+			 path="#ButtonBar#ColorSchemeRecordMute#ButtonBarExt"
+			 condition="and({MenuCurrent},and({IsRecording},{VolumeIsMute}))"
+			/>
+			<text
+			 x1="3" x2="316" y="0" height="17"
+			 color="#ColorMenuItemCurrent"
+			 valign="middle" font="FontMenuItem"
+			>
+				{MenuCurrent}
+			</text>
+			<text
+			 x1="3" x2="316" y1="0" height="17"
+			 color="#ColorMenuItem"
+			 valign="middle" font="FontMenuItem"
+			>
+				{MenuItem}
+			</text>
 		</list>
 
 		<block condition="{MenuText}">
-			<text x1="3" x2="316" y1="31" y2="218" color="#ColorMenuText" multiline="yes" mlrelscroll="{MenuTextScroll}" scrollmode="always" font="FontMenuText">
+			<text
+			 x1="3" x2="316" y1="31" y2="218"
+			 color="#ColorMenuText"
+			 multiline="yes" font="FontMenuText"
+			>
 				{MenuText}
 			</text>
 		</block>
 
-		<image x="0" y="220" path="#ButtonRed" condition="{ButtonRed}"/>
-		<text x="2" width="76" y="220" height="20" color="#ColorMenuButtonRedForeground" scrollmode="always" valign="middle" align="center" font="FontMenuButton" condition="{ButtonRed}">
+
+		<image
+		 x="0" y="220"
+		 path="#ButtonRed"
+		 condition="{ButtonRed}"
+		/>
+		<text
+		 x="2" width="76" y="220" height="20"
+		 color="#ColorMenuButtonRedForeground"
+		 scrollmode="always" valign="middle" align="center" font="FontMenuButton"
+		 condition="{ButtonRed}"
+		>
 			{ButtonRed}
 		</text>
-		<image x="80" y="220" path="#ButtonGreen" condition="{ButtonGreen}"/>
-		<text x="82" width="76" y="220" height="20" color="#ColorMenuButtonGreenForeground" scrollmode="always" valign="middle" align="center" font="FontMenuButton" condition="{ButtonGreen}">
+
+		<image
+		 x="80" y="220"
+		 path="#ButtonGreen"
+		 condition="{ButtonGreen}"
+		/>
+		<text
+		 x="82" width="76" y="220" height="20"
+		 color="#ColorMenuButtonGreenForeground"
+		 scrollmode="always" valign="middle" align="center"
+		 font="FontMenuButton"
+		 condition="{ButtonGreen}"
+		>
 			{ButtonGreen}
 		</text>
-		<image x="160" y="220" path="#ButtonYellow" condition="{ButtonYellow}"/>
-		<text x="162" width="76" y="220" height="20" color="#ColorMenuButtonYellowForeground" scrollmode="always" valign="middle" align="center" font="FontMenuButton" condition="{ButtonYellow}">
+
+		<image
+		 x="160" y="220"
+		 path="#ButtonYellow"
+		 condition="{ButtonYellow}"
+		/>
+		<text
+		 x="162" width="76" y="220" height="20"
+		 color="#ColorMenuButtonYellowForeground"
+		 scrollmode="always" valign="middle" align="center" font="FontMenuButton"
+		 condition="{ButtonYellow}"
+		>
 			{ButtonYellow}
 		</text>
-		<image x="240" y="220" path="#ButtonBlue" condition="{ButtonBlue}"/>
-		<text x="242" width="76" y="220" height="20" color="#ColorMenuButtonBlueForeground" scrollmode="always" valign="middle" align="center" font="FontMenuButton" condition="{ButtonBlue}">
+
+		<image
+		 x="240" y="220"
+		 path="#ButtonBlue"
+		 condition="{ButtonBlue}"
+		/>
+		<text
+		 x="242" width="76" y="220" height="20"
+		 color="#ColorMenuButtonBlueForeground"
+		 scrollmode="always" valign="middle" align="center" font="FontMenuButton"
+		 condition="{ButtonBlue}"
+		>
 			{ButtonBlue}
 		</text>
 
-	<include path="'{SkinPath}/displayerror.inc'"/>
+		<include path="'{SkinPath}/inc/displayerror.inc'"/>
 
 	</display>
 

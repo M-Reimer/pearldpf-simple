@@ -9,6 +9,7 @@ import math
 import cairo
 from PIL import Image
 
+
 def logoback(filename, start ,stop):
 	WIDTH, HEIGHT = 320, 165
 	SHADOWWIDTH = 44
@@ -71,10 +72,10 @@ def bar(filename, startR, startG, startB, middleR, middleG, middleB ,stopR ,stop
 	surface.write_to_png (filename) # Output to PNG
 
 
-logoback("logoback_normal.png", 1, 0)
-logoback("logoback_mute.png", 0.7, 0)
-logoback("logoback_normal_ng.png", 0, 0)
-logoback("logoback_mute_ng.png", 0.3, 0.3)
+logoback("logoarea-frontmask_lightgray-gradient.png", 1, 0)
+logoback("logoarea-frontmask_darkgray-gradient.png", 0.7, 0)
+logoback("logoarea-frontmask_black.png", 0, 0)
+logoback("logoarea-frontmask_darkgray.png", 0.3, 0.3)
 
 #bar("bar_back.png", 4/255, 246/255, 244/255, 36/255, 82/255, 132/255, 4/255, 2/255, 44/255)
 #bar("bar_back.png", 1, 0, 0, 0, 1, 0)
@@ -90,7 +91,7 @@ reg=im.crop((10,0,90,17))
 imnew.paste(reg,(50,0,130,17))
 imnew.paste(reg,(130,0,210,17))
 imnew.paste(reg,(210,0,290,17))
-imnew.save("button_bar_normal.png", "PNG")
+imnew.save("menu-back-item_darkblue.png", "PNG")
 
 im = Image.open("SOURCE_button_bar_record.png")
 imnew = Image.new('RGBA', (320,17))
@@ -102,7 +103,7 @@ reg=im.crop((10,0,90,17))
 imnew.paste(reg,(50,0,130,17))
 imnew.paste(reg,(130,0,210,17))
 imnew.paste(reg,(210,0,290,17))
-imnew.save("button_bar_record.png", "PNG")
+imnew.save("menu-back-item_darkred.png", "PNG")
 
 im = Image.open("SOURCE_button_top_normal.png")
 imnew = Image.new('RGBA', (320,31))
@@ -120,7 +121,7 @@ reg=im.crop((10,0,90,31))
 imnew.paste(reg,(50,0,130,31))
 imnew.paste(reg,(130,0,210,31))
 imnew.paste(reg,(210,0,290,31))
-imnew.save("button_top_normal.png", "PNG")
+imnew.save("menu-back-caption_darkblue.png", "PNG")
 
 im = Image.open("SOURCE_button_top_record.png")
 imnew = Image.new('RGBA', (320,31))
@@ -138,4 +139,36 @@ reg=im.crop((10,0,90,31))
 imnew.paste(reg,(50,0,130,31))
 imnew.paste(reg,(130,0,210,31))
 imnew.paste(reg,(210,0,290,31))
-imnew.save("button_top_record.png", "PNG")
+imnew.save("menu-back-caption_darkred.png", "PNG")
+
+
+im1 = Image.open("SOURCE_Bullet-red.png")
+im1=im1.resize((25, 25), Image.ANTIALIAS)
+
+im = Image.open("logoarea-frontmask_lightgray-gradient.png")
+im.paste(im1,(4,3),im1)
+im.save("logoarea-frontmask_lightgray-gradient-bullet.png", "PNG")
+
+im = Image.open("logoarea-frontmask_darkgray-gradient.png")
+im.paste(im1,(4,3),im1)
+im.save("logoarea-frontmask_darkgray-gradient-bullet.png", "PNG")
+
+im = Image.open("logoarea-frontmask_black.png")
+im.paste(im1,(4,3),im1)
+im.save("logoarea-frontmask_black-bullet.png", "PNG")
+
+im = Image.open("logoarea-frontmask_darkgray.png")
+im.paste(im1,(4,3),im1)
+im.save("logoarea-frontmask_darkgray-bullet.png", "PNG")
+
+im = Image.new('RGBA', (320,45), (int("04",16),int("02",16),int("2C",16),255))
+im.save("lowerbar-back_darkblue.png", "PNG")
+
+im = Image.new('RGBA', (320,45), (int("48",16),int("00",16),int("00",16),255))
+im.save("lowerbar-back_darkred.png", "PNG")
+
+im = Image.open("SOURCE_vdr-logo_big.jpg")
+im=im.resize((320, 160), Image.ANTIALIAS)
+imnew = Image.new('RGB', (320,240), (255,255,255))
+imnew.paste(im,(0,40))
+imnew.save("vdr-logo.png", "PNG")

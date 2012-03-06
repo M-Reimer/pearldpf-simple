@@ -66,14 +66,6 @@
     value="'black'"
   />
 
-  <variable evaluate="once" id="ColorBarBackgroundNormal"
-    value="'0x04022C'"
-  />
-
-  <variable evaluate="once" id="ColorBarBackgroundRecord"
-    value="'0x480000'"
-  />
-
   <variable evaluate="once" id="ColorBarForeground"
     value="'white'"
   />

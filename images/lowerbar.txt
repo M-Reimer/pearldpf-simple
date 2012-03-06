@@ -1,2 +1,0 @@
-LowerBar Hight 45
-Color R 0x00; G 0x03; B 0x2B
